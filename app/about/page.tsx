@@ -1,4 +1,4 @@
-import RevealWrapper from '@/components/RevealWrapper'
+import RevealWrapper from '../../components/RevealWrapper'
 
 export const metadata = {
   title: 'About — Warditor',
