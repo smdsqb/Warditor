@@ -69,7 +69,7 @@ const entries = [
       'Decided against blocking — watch only, report daily',
       'Named it Warditor — Warden + Auditor',
       'Registered warditor.com',
-      'Split responsibilities — Next.js site + Groq AI vs Android app + Flutter',
+      'Split responsibilities — Next.js site + Gemini AI vs Android app + Flutter',
     ],
   },
 ]
