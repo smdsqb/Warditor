@@ -1,6 +1,6 @@
-import ShameCard from '@/components/ShameCard'
-import Ticker from '@/components/Ticker'
-import RevealWrapper from '@/components/RevealWrapper'
+import ShameCard from '../components/ShameCard'
+import Ticker from '../components/Ticker'
+import RevealWrapper from '../components/RevealWrapper'
 import Link from 'next/link'
 
 const steps = [
@@ -45,7 +45,6 @@ export default function Home() {
 
         <h1 style={{ fontFamily: 'var(--font-bebas)', lineHeight: '0.9', letterSpacing: '4px' }}
           className="text-black text-center fade-up-2"
-          style2="font-size: clamp(72px, 12vw, 160px);"
         >
           <span className="block" style={{ fontSize: 'clamp(72px, 12vw, 155px)' }}>FACE WHAT</span>
           <span className="block" style={{ fontSize: 'clamp(72px, 12vw, 155px)' }}>
