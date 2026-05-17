@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Warditor — Face What You Did',
   description: 'An AI that shows you exactly what you did instead of studying — and makes you feel every wasted minute.',
   keywords: ['productivity', 'screen time', 'study', 'focus', 'AI'],
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
