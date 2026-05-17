@@ -54,7 +54,7 @@ const sections = [
     title: 'Third party services',
     content: [
       'Firebase (Google) — authentication and data storage',
-      'Groq — AI processing of usage data to generate reports (data is not retained by Groq)',
+      'Gemini — AI processing of usage data to generate reports (data is not retained by Groq)',
       'YouTube, Reddit, Instagram APIs — only accessed if you explicitly connect your accounts',
       'Razorpay — payment processing for Premium subscriptions (we do not store card details)',
     ],
@@ -77,7 +77,7 @@ export default function Privacy() {
       <h1 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(48px, 6vw, 80px)', letterSpacing: '3px', lineHeight: 1 }} className="text-black mb-4">
         PRIVACY<br />POLICY
       </h1>
-      <p className="text-sm font-light text-muted mb-2">Last updated: May 2025</p>
+      <p className="text-sm font-light text-muted mb-2">Last updated: May 2026</p>
       <p className="text-base font-light text-muted leading-relaxed mb-16 max-w-xl">
         We know you&apos;re trusting us with sensitive data. We take that seriously. This policy is written in plain English — not legal jargon — because you deserve to actually understand it.
       </p>
