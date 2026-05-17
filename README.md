@@ -47,7 +47,7 @@ Firebase (Firestore) — stores usage data
         ↓
 Optional: YouTube API, Reddit API, Instagram API, Google Activity API
         ↓
-Groq AI — generates personalised shame report narrative
+Gemini 2.5 Flash AI — generates personalised shame report narrative
         ↓
 User reads their daily audit and feels it
 ```
@@ -71,7 +71,7 @@ User reads their daily audit and feels it
 | UsageStatsManager API | Native Android app usage tracking |
 | Firebase Auth | User authentication |
 | Firestore | Usage data storage |
-| Groq API | AI shame report generation |
+| Gemini API | AI shame report generation |
 | Razorpay | Payment processing |
 
 ### External APIs
@@ -261,8 +261,8 @@ Full privacy policy: [warditor.com/privacy](https://warditor.com/privacy)
 
 Two teenagers who got tired of lying to themselves about how they spent their time.
 
-- [Your name] — Next.js website, Groq AI integration, Firebase architecture
-- [Nikhil] — Android app, Flutter, Play Store, Razorpay integration
+- Saqib — Next.js website, Groq AI integration, Firebase architecture
+- Nikhil — Android app, Flutter, Play Store, Razorpay integration
 
 ---
 
