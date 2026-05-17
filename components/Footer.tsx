@@ -36,7 +36,7 @@ export default function Footer() {
               </p>
               <Link href="/about" className="text-sm text-white/50 hover:text-white transition-colors">About</Link>
               <Link href="/privacy" className="text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</Link>
-              <a href="mailto:changethislater@xyz.com" className="text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+              <Link href="/changelog" className="text-sm text-white/50 hover:text-white transition-colors">Blog</Link>
             </div>
           </div>
         </div>
