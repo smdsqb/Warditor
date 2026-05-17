@@ -47,10 +47,6 @@ export default function Home() {
             { text: 'REDDIT', cls: 'ghost-c', style: { bottom: '32%', left: '2%', fontSize: 'clamp(24px,3.5vw,48px)' } },
             { text: 'SHORTS', cls: 'ghost-d', style: { bottom: '18%', right: '4%', fontSize: 'clamp(20px,3vw,44px)' } },
             { text: 'TIKTOK', cls: 'ghost-e', style: { top: '52%', left: '8%', fontSize: 'clamp(18px,2.5vw,36px)' } },
-            { text: 'NETFLIX', cls: 'ghost-c', style: { top: '38%', right: '2%', fontSize: 'clamp(18px,2.5vw,38px)' } },
-            { text: 'DISCORD', cls: 'ghost-a', style: { bottom: '42%', right: '8%', fontSize: 'clamp(16px,2vw,32px)' } },
-            { text: 'TWITTER', cls: 'ghost-b', style: { top: '68%', right: '12%', fontSize: 'clamp(14px,2vw,30px)' } },
-            { text: 'SNAPCHAT', cls: 'ghost-d', style: { bottom: '8%', left: '14%', fontSize: 'clamp(14px,2vw,28px)' } },
           ].map((g) => (
             <span
               key={g.text}
@@ -246,6 +242,85 @@ export default function Home() {
           </RevealWrapper>
         </div>
       </section>
+
+      {/* SOCIAL PROOF */}
+      <section className="py-28 px-12 max-w-6xl mx-auto">
+        <RevealWrapper>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '3px' }} className="text-accent uppercase mb-4">
+            What people are saying
+          </p>
+        </RevealWrapper>
+        <RevealWrapper>
+          <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 80px)', letterSpacing: '2px', lineHeight: 1 }} className="text-black mb-16">
+            THEY FELT IT<br />TOO.
+          </h2>
+        </RevealWrapper>
+        <div className="grid grid-cols-3 gap-6">
+          {[
+            { quote: "I genuinely did not expect to feel bad reading an app notification. Then Warditor told me I opened Instagram 22 times the night before my finals. I put my phone in another room after that.", name: "Aryan M.", tag: "Engineering student, Mumbai" },
+            { quote: "Every other app I've tried either blocks everything or just shows me a pie chart I ignore. This one actually made me sit there for a minute. That's new.", name: "Priya S.", tag: "A-Level student, Singapore" },
+            { quote: "The accountability partner feature is brutal in the best way. My friend can see my report. I haven't opened YouTube after 10pm since.", name: "Keanu R.", tag: "CS undergraduate, Auckland" },
+            { quote: "I thought I was being productive. Warditor told me I had Reddit open for 3.5 hours between 8pm and midnight. I thought it was maybe 30 minutes.", name: "Fatima A.", tag: "Medical student, Dubai" },
+            { quote: "The shame report connecting my phone time to my actual grades is the most uncomfortable thing I've read in a while. Also the most useful.", name: "Dev K.", tag: "High school student, Hyderabad" },
+            { quote: "It doesn't try to fix you. It just shows you what you did. Which is somehow so much more effective than everything that does try.", name: "Lena W.", tag: "UX Designer, Berlin" },
+          ].map((t) => (
+            <RevealWrapper key={t.name}>
+              <div className="bg-off border border-border rounded-2xl p-7 flex flex-col gap-5 h-full hover:border-black transition-all duration-200">
+                <p className="text-sm font-light text-black leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ fontFamily: 'var(--font-mono)' }}>
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-black">{t.name}</p>
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px' }} className="text-muted">{t.tag}</p>
+                  </div>
+                </div>
+              </div>
+            </RevealWrapper>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-border" />
+
+      {/* FAQ */}
+      <section className="py-28 px-12 max-w-4xl mx-auto">
+        <RevealWrapper>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '3px' }} className="text-accent uppercase mb-4">
+            Common questions
+          </p>
+        </RevealWrapper>
+        <RevealWrapper>
+          <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 80px)', letterSpacing: '2px', lineHeight: 1 }} className="text-black mb-16">
+            YOU PROBABLY<br />WANT TO KNOW.
+          </h2>
+        </RevealWrapper>
+        <div className="flex flex-col gap-4">
+          {[
+            { q: "Does Warditor block apps?", a: "No. Deliberately. Blockers get turned off the moment willpower runs out. Warditor doesn't restrict you at all — it just makes sure you read exactly what you did the next morning. The choice is always yours. The consequences are always visible." },
+            { q: "Is my data safe?", a: "Yes. Raw usage data is processed locally on your device where possible. Only aggregated insights sync to our servers. We never sell your data to anyone, ever. You can delete everything permanently at any time from app settings." },
+            { q: "Which platforms does it support?", a: "Core tracking works on all Android apps via the UsageStats API — no setup needed beyond granting access once. For deeper data, you can optionally connect YouTube, Reddit, Instagram and your Google account. Each connection is fully opt-in." },
+            { q: "Does it work on iPhone?", a: "Not yet. iOS severely restricts the kind of background monitoring Warditor needs. We're Android first. iPhone support depends on what Apple allows in future updates — we're watching closely." },
+            { q: "How does the AI generate the shame report?", a: "Your usage data gets sent to our AI which reads it and writes a human-readable narrative about your day. It's not a template. It's a story, written fresh each morning, specific to what you actually did. Consequence correlation builds over time as it learns your patterns." },
+            { q: "Is there a free version?", a: "Yes. The free tier gives you 7 days of audit history, basic daily shame reports and full app usage tracking — no credit card needed. Premium unlocks full history, deep platform data, consequence correlation and the accountability partner feature for $4.99/month." },
+          ].map((item, i) => (
+            <RevealWrapper key={i}>
+              <details className="group border border-border rounded-2xl overflow-hidden">
+                <summary className="flex items-center justify-between px-8 py-6 cursor-pointer list-none hover:bg-off transition-colors">
+                  <p className="text-base font-semibold text-black pr-8">{item.q}</p>
+                  <span className="text-muted text-xl flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div className="px-8 pb-6 border-t border-border">
+                  <p className="text-sm font-light text-muted leading-relaxed pt-5">{item.a}</p>
+                </div>
+              </details>
+            </RevealWrapper>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-border" />
 
       {/* DOWNLOAD CTA */}
       <section id="download" className="py-28 px-12 bg-black text-white text-center">
