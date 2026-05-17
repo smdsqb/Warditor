@@ -47,6 +47,10 @@ export default function Home() {
             { text: 'REDDIT', cls: 'ghost-c', style: { bottom: '32%', left: '2%', fontSize: 'clamp(24px,3.5vw,48px)' } },
             { text: 'SHORTS', cls: 'ghost-d', style: { bottom: '18%', right: '4%', fontSize: 'clamp(20px,3vw,44px)' } },
             { text: 'TIKTOK', cls: 'ghost-e', style: { top: '52%', left: '8%', fontSize: 'clamp(18px,2.5vw,36px)' } },
+            { text: 'NETFLIX', cls: 'ghost-c', style: { top: '38%', right: '2%', fontSize: 'clamp(18px,2.5vw,38px)' } },
+            { text: 'DISCORD', cls: 'ghost-a', style: { bottom: '42%', right: '8%', fontSize: 'clamp(16px,2vw,32px)' } },
+            { text: 'TWITTER', cls: 'ghost-b', style: { top: '68%', right: '12%', fontSize: 'clamp(14px,2vw,30px)' } },
+            { text: 'SNAPCHAT', cls: 'ghost-d', style: { bottom: '8%', left: '14%', fontSize: 'clamp(14px,2vw,28px)' } },
           ].map((g) => (
             <span
               key={g.text}
