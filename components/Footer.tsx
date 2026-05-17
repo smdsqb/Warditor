@@ -36,14 +36,14 @@ export default function Footer() {
               </p>
               <Link href="/about" className="text-sm text-white/50 hover:text-white transition-colors">About</Link>
               <Link href="/privacy" className="text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</Link>
-              <a href="mailto:hello@warditor.com" className="text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+              <a href="mailto:changethislater@xyz.com" className="text-sm text-white/50 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex items-center justify-between">
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px' }} className="text-white/20">
-            © 2025 Warditor. All rights reserved.
+            © 2026 Warditor. All rights reserved.
           </p>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px' }} className="text-white/20">
             Built by two teenagers who were tired of lying to themselves.
