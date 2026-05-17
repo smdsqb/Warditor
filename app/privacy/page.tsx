@@ -62,7 +62,7 @@ const sections = [
   {
     title: 'Contact',
     content: [
-      'For any privacy questions or data requests, contact us at: privacy@warditor.com',
+      'For any privacy questions or data requests, contact us at: changethislater@xyz.com',
       'We aim to respond to all requests within 72 hours',
     ],
   },
