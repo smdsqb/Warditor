@@ -2,26 +2,47 @@ import RevealWrapper from '../../components/RevealWrapper'
 
 export const metadata = {
   title: 'Changelog — Warditor',
-  description: "Everything we've built, week by week. No fluff.",
+  description: "Everything we've shipped. No fluff.",
 }
 
 const entries = [
-  { version: 'v0.3', date: 'May 2026', tag: 'Latest', tagColor: 'bg-accent text-white', title: 'Social proof, FAQ and depth effects', items: ['Added testimonials section to homepage', 'Built FAQ accordion with native HTML details element — no JS bloat', 'Added 3D perspective tilt to shame card on mousemove', 'Stacked ghost cards behind main card for depth', 'Floating ghost words in hero — INSTAGRAM, YOUTUBE, REDDIT and more', 'CSS grain texture overlay across entire site', 'Mobile responsive across all pages'] },
-  { version: 'v0.2', date: 'May 2026', tag: 'Design', tagColor: 'bg-black text-white', title: 'Full site with all pages', items: ['Launched About page with Warden + Auditor etymology breakdown', 'Built Features page with detailed breakdown of all 6 features', 'Privacy policy in plain English — no legal jargon', 'Scroll-triggered reveal animations throughout', 'Scrolling shame ticker banner', 'Pricing section with free and premium tiers', 'SVG favicon — W wordmark with red accent bars'] },
-  { version: 'v0.1', date: 'May 2026', tag: 'Launch', tagColor: 'bg-black text-white', title: 'Landing page live', items: ['Built initial Next.js 14 project with TypeScript and Tailwind', 'Hero section with FACE WHAT YOU DID headline', 'Mock shame card showing sample AI audit report', 'How it works section — 3 step flow', 'Features grid — 4 core features', 'Emotional copy section', 'Deployed to Vercel'] },
-  { version: 'v0.0', date: 'May 2026', tag: 'Idea', tagColor: 'bg-border text-muted', title: 'The idea', items: ['Identified the gap — no productivity app makes you feel your wasted time', 'Settled on the shame mechanic as the core differentiator', 'Chose Android native tracking via UsageStatsManager over Chrome extension', 'Decided against blocking — watch only, report daily', 'Named it Warditor — Warden + Auditor', 'Registered warditor.com'] },
+  {
+    version: 'v0.1',
+    date: 'May 2026',
+    tag: 'Latest',
+    tagColor: 'bg-accent text-white',
+    title: 'Website live',
+    items: [
+      'Landing page, About, Features, Privacy, Changelog pages shipped',
+      'AI-powered shame card with 3D tilt and depth effects',
+      'Mobile responsive across all pages',
+      'Google Search Console verified, sitemap submitted',
+      'Open Graph meta tags for social sharing',
+    ],
+  },
+  {
+    version: 'v0.0',
+    date: 'May 2026',
+    tag: 'Foundation',
+    tagColor: 'bg-black text-white',
+    title: 'Project started',
+    items: [
+      'Identified the core problem — no productivity app makes you feel your wasted time',
+      'Android-first, no blocking, AI narrative as the differentiator',
+      'Tech stack decided — Next.js, Flutter, Firebase, Groq',
+    ],
+  },
 ]
 
 const upcoming = [
   { label: 'Android app beta', status: 'In progress' },
-  { label: 'Firebase backend integration', status: 'In progress' },
-  { label: 'Groq AI shame report generation', status: 'Planned' },
-  { label: 'UsageStatsManager API integration', status: 'Planned' },
-  { label: 'YouTube + Reddit + Instagram API connections', status: 'Planned' },
-  { label: 'Google Activity API integration', status: 'Planned' },
+  { label: 'Firebase + Groq AI integration', status: 'In progress' },
+  { label: 'UsageStatsManager API', status: 'Planned' },
+  { label: 'YouTube, Reddit, Instagram API connections', status: 'Planned' },
+  { label: 'Google Activity API', status: 'Planned' },
   { label: 'Razorpay payment integration', status: 'Planned' },
-  { label: 'Accountability partner feature', status: 'Planned' },
   { label: 'Consequence correlation engine', status: 'Planned' },
+  { label: 'Accountability partner feature', status: 'Planned' },
   { label: 'iOS app', status: 'Post-launch' },
 ]
 
@@ -36,10 +57,11 @@ export default function Changelog() {
       </RevealWrapper>
       <RevealWrapper>
         <p className="text-base font-light text-muted leading-relaxed mb-12 md:mb-20 max-w-xl">
-          Everything we&apos;ve shipped, week by week. Built in public because we have nothing to hide — except maybe our own screen time reports.
+          Built in public. Updated as we ship.
         </p>
       </RevealWrapper>
 
+      {/* Upcoming */}
       <RevealWrapper>
         <div className="bg-off border border-border rounded-2xl p-6 md:p-8 mb-12 md:mb-16">
           <div className="flex items-center gap-3 mb-6">
@@ -57,6 +79,7 @@ export default function Changelog() {
         </div>
       </RevealWrapper>
 
+      {/* Entries */}
       <div className="relative flex flex-col gap-0">
         <div className="absolute left-[19px] top-3 bottom-3 w-[1px] bg-border" />
         {entries.map((e, i) => (
