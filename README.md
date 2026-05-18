@@ -261,15 +261,15 @@ Full privacy policy: [warditor.com/privacy](https://warditor.com/privacy)
 
 Two teenagers who got tired of lying to themselves about how they spent their time.
 
-- Saqib — Next.js website, Groq AI integration, Firebase architecture
+- Saqib — Next.js website, Gemini AI integration, Firebase architecture
 - Nikhil — Android app, Flutter, Play Store, Razorpay integration
 
 ---
 
 ## License
 
-MIT License — see `LICENSE` for details.
+All Rights Reserved. License — see `LICENSE` for details.
 
 ---
 
-*Built with Next.js, deployed on Vercel, powered by Groq AI, and a genuine hatred for wasted potential.*
+*Built with Next.js, deployed on Vercel, powered by Gemini AI, and a genuine hatred for wasted potential.*
