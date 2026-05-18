@@ -29,7 +29,7 @@ const entries = [
     items: [
       'Identified the core problem — no productivity app makes you feel your wasted time',
       'Android-first, no blocking, AI narrative as the differentiator',
-      'Tech stack decided — Next.js, Flutter, Firebase, Groq',
+      'Tech stack decided — Next.js, Flutter/Stitch, Firebase, Gemini AI',
     ],
   },
 ]
