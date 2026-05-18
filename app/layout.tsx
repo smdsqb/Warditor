@@ -6,9 +6,31 @@ import Footer from '../components/Footer'
 export const metadata: Metadata = {
   title: 'Warditor — Face What You Did',
   description: 'An AI that shows you exactly what you did instead of studying — and makes you feel every wasted minute.',
-  keywords: ['productivity', 'screen time', 'study', 'focus', 'AI'],
+  keywords: ['productivity', 'screen time', 'study', 'focus', 'AI', 'shame', 'accountability'],
   icons: {
     icon: '/favicon.svg',
+  },
+  openGraph: {
+    title: 'Warditor — Face What You Did',
+    description: 'An AI that shows you exactly what you did instead of studying — and makes you feel every wasted minute. No blocking. No babysitting. Just the truth.',
+    url: 'https://warditor.com',
+    siteName: 'Warditor',
+    images: [
+      {
+        url: 'https://warditor.com/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Warditor — Face What You Did',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Warditor — Face What You Did',
+    description: 'An AI that shows you exactly what you did instead of studying — and makes you feel every wasted minute.',
+    images: ['https://warditor.com/og-image.svg'],
   },
 }
 
