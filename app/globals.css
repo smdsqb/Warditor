@@ -87,24 +87,54 @@ body {
   background-size: 128px 128px;
 }
 
-/* Floating ghost words */
+/* Floating ghost words — opacity starts at 0 to prevent flash on load */
 @keyframes floatA {
-  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.04; }
-  33% { transform: translateY(-18px) translateX(8px); opacity: 0.07; }
-  66% { transform: translateY(10px) translateX(-6px); opacity: 0.03; }
+  0%   { transform: translateY(0px) translateX(0px); opacity: 0; }
+  10%  { opacity: 0.04; }
+  33%  { transform: translateY(-18px) translateX(8px); opacity: 0.07; }
+  66%  { transform: translateY(10px) translateX(-6px); opacity: 0.03; }
+  90%  { opacity: 0.04; }
+  100% { transform: translateY(0px) translateX(0px); opacity: 0; }
 }
 @keyframes floatB {
-  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.03; }
-  50% { transform: translateY(-24px) translateX(-10px); opacity: 0.06; }
+  0%   { transform: translateY(0px) translateX(0px); opacity: 0; }
+  10%  { opacity: 0.03; }
+  50%  { transform: translateY(-24px) translateX(-10px); opacity: 0.06; }
+  90%  { opacity: 0.03; }
+  100% { transform: translateY(0px) translateX(0px); opacity: 0; }
 }
 @keyframes floatC {
-  0%, 100% { transform: translateY(0px); opacity: 0.05; }
-  40% { transform: translateY(14px) translateX(12px); opacity: 0.08; }
-  80% { transform: translateY(-8px) translateX(-4px); opacity: 0.03; }
+  0%   { transform: translateY(0px); opacity: 0; }
+  10%  { opacity: 0.05; }
+  40%  { transform: translateY(14px) translateX(12px); opacity: 0.08; }
+  80%  { transform: translateY(-8px) translateX(-4px); opacity: 0.03; }
+  95%  { opacity: 0.05; }
+  100% { transform: translateY(0px); opacity: 0; }
+}
+@keyframes floatD {
+  0%   { transform: translateY(0px) translateX(0px); opacity: 0; }
+  15%  { opacity: 0.04; }
+  45%  { transform: translateY(20px) translateX(-8px); opacity: 0.06; }
+  75%  { transform: translateY(-12px) translateX(6px); opacity: 0.03; }
+  95%  { opacity: 0.04; }
+  100% { transform: translateY(0px) translateX(0px); opacity: 0; }
+}
+@keyframes floatE {
+  0%   { transform: translateY(0px); opacity: 0; }
+  20%  { opacity: 0.03; }
+  60%  { transform: translateY(-16px) translateX(10px); opacity: 0.05; }
+  95%  { opacity: 0.03; }
+  100% { transform: translateY(0px); opacity: 0; }
 }
 
-.ghost-a { animation: floatA 8s ease-in-out infinite; }
-.ghost-b { animation: floatB 11s ease-in-out infinite 2s; }
-.ghost-c { animation: floatC 9s ease-in-out infinite 1s; }
-.ghost-d { animation: floatA 13s ease-in-out infinite 3s; }
-.ghost-e { animation: floatB 10s ease-in-out infinite 0.5s; }
+/* All ghost words start invisible — animation fades them in */
+.ghost-a { opacity: 0; animation: floatA 8s ease-in-out infinite; }
+.ghost-b { opacity: 0; animation: floatB 11s ease-in-out infinite 2s; }
+.ghost-c { opacity: 0; animation: floatC 9s ease-in-out infinite 1s; }
+.ghost-d { opacity: 0; animation: floatD 13s ease-in-out infinite 3s; }
+.ghost-e { opacity: 0; animation: floatE 10s ease-in-out infinite 0.5s; }
+.ghost-f { opacity: 0; animation: floatA 12s ease-in-out infinite 4s; }
+.ghost-g { opacity: 0; animation: floatC 14s ease-in-out infinite 1.5s; }
+.ghost-h { opacity: 0; animation: floatB 9s ease-in-out infinite 5s; }
+.ghost-i { opacity: 0; animation: floatD 11s ease-in-out infinite 2.5s; }
+.ghost-j { opacity: 0; animation: floatE 13s ease-in-out infinite 0.8s; }
