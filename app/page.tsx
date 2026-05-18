@@ -49,6 +49,11 @@ export default function Home() {
             { text: 'REDDIT', cls: 'ghost-c', style: { bottom: '32%', left: '2%', fontSize: 'clamp(18px,3.5vw,48px)' } },
             { text: 'SHORTS', cls: 'ghost-d', style: { bottom: '18%', right: '4%', fontSize: 'clamp(16px,3vw,44px)' } },
             { text: 'TIKTOK', cls: 'ghost-e', style: { top: '52%', left: '8%', fontSize: 'clamp(14px,2.5vw,36px)' } },
+            { text: 'NETFLIX', cls: 'ghost-f', style: { top: '38%', right: '2%', fontSize: 'clamp(14px,2.5vw,40px)' } },
+            { text: 'DISCORD', cls: 'ghost-g', style: { bottom: '44%', right: '9%', fontSize: 'clamp(12px,2vw,34px)' } },
+            { text: 'TWITTER', cls: 'ghost-h', style: { top: '68%', right: '14%', fontSize: 'clamp(12px,2vw,32px)' } },
+            { text: 'SNAPCHAT', cls: 'ghost-i', style: { bottom: '8%', left: '16%', fontSize: 'clamp(12px,2vw,30px)' } },
+            { text: 'WHATSAPP', cls: 'ghost-j', style: { top: '78%', left: '3%', fontSize: 'clamp(12px,2vw,30px)' } },
           ].map((g) => (
             <span key={g.text} className={`absolute font-black text-black ${g.cls}`} style={{ fontFamily: 'var(--font-bebas)', letterSpacing: '4px', ...g.style }}>
               {g.text}
