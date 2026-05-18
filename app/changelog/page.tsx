@@ -36,7 +36,7 @@ const entries = [
 
 const upcoming = [
   { label: 'Android app beta', status: 'In progress' },
-  { label: 'Firebase + Groq AI integration', status: 'In progress' },
+  { label: 'Firebase + Gemini AI integration', status: 'In progress' },
   { label: 'UsageStatsManager API', status: 'Planned' },
   { label: 'YouTube, Reddit, Instagram API connections', status: 'Planned' },
   { label: 'Google Activity API', status: 'Planned' },
