@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Warditor — Face What You Did',
     description: 'An AI that shows you exactly what you did instead of studying — and makes you feel every wasted minute. No blocking. No babysitting. Just the truth.',
-    url: 'https://warditor.com',
+    url: 'https://warditor.vercel.app',
     siteName: 'Warditor',
     images: [
       {
-        url: 'https://warditor.com/og-image.svg',
+        url: 'https://warditor.vercel.app/og-image.svg',
         width: 1200,
         height: 630,
         alt: 'Warditor — Face What You Did',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Warditor — Face What You Did',
     description: 'An AI that shows you exactly what you did instead of studying — and makes you feel every wasted minute.',
-    images: ['https://warditor.com/og-image.svg'],
+    images: ['https://warditor.vercel.app/og-image.svg'],
   },
 }
 
