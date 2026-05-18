@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Red accent bar top -->
+  <rect width="1200" height="4" fill="#ff3b2f"/>
+  
+  <!-- Ghost words -->
+  <text x="40" y="180" font-family="Arial Black, sans-serif" font-weight="900" font-size="96" fill="white" opacity="0.04" letter-spacing="8">INSTAGRAM</text>
+  <text x="700" y="520" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white" opacity="0.04" letter-spacing="6">YOUTUBE</text>
+  <text x="900" y="120" font-family="Arial Black, sans-serif" font-weight="900" font-size="56" fill="white" opacity="0.04" letter-spacing="5">REDDIT</text>
+
+  <!-- Logo -->
+  <text x="80" y="120" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="white" letter-spacing="6">WARD</text>
+  <text x="336" y="120" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#ff3b2f" letter-spacing="6">I</text>
+  <text x="368" y="120" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="white" letter-spacing="6">TOR</text>
+
+  <!-- Main headline -->
+  <text x="80" y="320" font-family="Arial Black, sans-serif" font-weight="900" font-size="112" fill="white" letter-spacing="4">FACE WHAT</text>
+  <text x="80" y="440" font-family="Arial Black, sans-serif" font-weight="900" font-size="112" fill="white" letter-spacing="4">YOU </text>
+  <text x="338" y="440" font-family="Arial Black, sans-serif" font-weight="900" font-size="112" fill="#ff3b2f" letter-spacing="4">DID.</text>
+
+  <!-- Tagline -->
+  <text x="80" y="540" font-family="Arial, sans-serif" font-weight="300" font-size="24" fill="#888888" letter-spacing="1">Your AI productivity warden. No blocking. No babysitting. Just the truth.</text>
+
+  <!-- Warden + Auditor pill -->
+  <rect x="80" y="560" width="320" height="36" rx="18" fill="none" stroke="#333333" stroke-width="1"/>
+  <text x="100" y="583" font-family="monospace" font-size="13" fill="#666666" letter-spacing="2">Warden + Auditor = Warditor</text>
+</svg>
