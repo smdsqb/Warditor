@@ -20,7 +20,7 @@ const entries = [
   {
     version: 'v0.1',
     date: 'May 2026',
-    tag: 'Basic',
+    tag: 'Basic Structure',
     tagColor: 'bg-black text-white',
     title: 'Website live',
     items: [
