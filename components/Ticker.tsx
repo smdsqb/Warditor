@@ -6,7 +6,7 @@ const items = [
   'You said you\'d study at 7pm',
   'You watched 6 episodes instead',
   'You scored 34% on that exam',
-  'You knew this would happen',
+  'You set a target, but failed',
 ]
 
 export default function Ticker() {
