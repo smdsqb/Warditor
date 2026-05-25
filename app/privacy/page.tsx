@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Privacy Policy — Warditor',
+  title: 'Privacy Policy',
   description: 'How Warditor handles your data. Plainly and honestly.',
 }
 
@@ -54,7 +54,7 @@ const sections = [
     title: 'Third party services',
     content: [
       'Firebase (Google) — authentication and data storage',
-      'Gemini — AI processing of usage data to generate reports (data is not retained by Groq)',
+      'Gemini — AI processing of usage data to generate reports (data is not retained by Gemini)',
       'YouTube, Reddit, Instagram APIs — only accessed if you explicitly connect your accounts',
       'Razorpay — payment processing for Premium subscriptions (we do not store card details)',
     ],
