@@ -4,33 +4,33 @@ import RevealWrapper from '../components/RevealWrapper'
 import Link from 'next/link'
 
 const steps = [
-  { num: '01', title: 'Download & Connect', desc: 'Install Warditor on Android. Grant usage access in one tap. Optionally connect YouTube, Reddit, and Instagram for deeper, more painful data.' },
+  { num: '01', title: 'Download & Connect', desc: 'Install Warditor on Android. Grant usage access in one tap. Optionally connect YouTube, Reddit, and Instagram for deeper, more accurate data.' },
   { num: '02', title: 'Live your life', desc: 'Warditor runs silently in the background. No popups. No blockers. No judgment — yet. Just watching. Taking notes. Building your case.' },
-  { num: '03', title: 'Face the audit', desc: "Every morning, your AI warden delivers a personalised shame report. Not numbers. A story. About you. About yesterday. About the exam you said you'd study for." },
+  { num: '03', title: 'Face the audit', desc: "Every morning, your AI warden delivers a personalised shame report. Not numbers. A story. About you. About yesterday. About the exam you said you'd study for, but didn't." },
 ]
 
 const features = [
   { icon: '🧠', title: 'AI Shame Reports', desc: 'Not a dashboard. Not a bar chart. A narrative that tells you exactly what you chose to do instead — in plain, uncomfortable English.' },
   { icon: '🔗', title: 'Deep Platform Data', desc: 'Connect YouTube, Reddit, Instagram and Google Activity. Know which videos, which subreddits, which rabbit holes swallowed your evening.' },
   { icon: '📉', title: 'Consequence Correlation', desc: "Warditor links your distractions to your real outcomes over time. 4 hours of Shorts → 34% on your exam. The data doesn't forgive. Neither will you." },
-  { icon: '👥', title: 'Accountability Partner', desc: "Share your audit with a trusted friend. Nothing changes behaviour faster than someone else seeing your screen time. Premium feature." },
+  { icon: '👥', title: 'Accountability Partner', desc: "Share your audit with a trusted friend. Nothing changes behaviour faster than someone else seeing your screen time. Premium feature, but highly effective." },
 ]
 
 const testimonials = [
-  { quote: "I genuinely did not expect to feel bad reading an app notification. Then Warditor told me I opened Instagram 22 times the night before my finals. I put my phone in another room after that.", name: "Aryan M.", tag: "Engineering student, Mumbai" },
+  { quote: "I genuinely did not expect to feel bad reading an app notification. Then Warditor told me I opened Instagram 22 times the night before my finals. I put my phone in another room after that.", name: "Aryan M.", tag: "Engineering student, Gujrat" },
   { quote: "Every other app I've tried either blocks everything or just shows me a pie chart I ignore. This one actually made me sit there for a minute. That's new.", name: "Priya S.", tag: "A-Level student, Singapore" },
   { quote: "The accountability partner feature is brutal in the best way. My friend can see my report. I haven't opened YouTube after 10pm since.", name: "Keanu R.", tag: "CS undergraduate, Auckland" },
-  { quote: "I thought I was being productive. Warditor told me I had Reddit open for 3.5 hours between 8pm and midnight. I thought it was maybe 30 minutes.", name: "Fatima A.", tag: "Medical student, Dubai" },
-  { quote: "The shame report connecting my phone time to my actual grades is the most uncomfortable thing I've read in a while. Also the most useful.", name: "Dev K.", tag: "High school student, Hyderabad" },
+  { quote: "I thought I was being productive. Warditor told me I had Reddit open for 3.5 hours between 8pm and midnight. I thought it was maybe 30 minutes.", name: "Fatima A.", tag: "Medical student, Manchester" },
+  { quote: "The shame report connecting my phone time to my actual grades is the most uncomfortable thing I've read in a while. Also the most useful.", name: "Dev K.", tag: "High school student, California" },
   { quote: "It doesn't try to fix you. It just shows you what you did. Which is somehow so much more effective than everything that does try.", name: "Lena W.", tag: "UX Designer, Berlin" },
 ]
 
 const faqs = [
   { q: "Does Warditor block apps?", a: "No. Deliberately. Blockers get turned off the moment willpower runs out. Warditor doesn't restrict you at all — it just makes sure you read exactly what you did the next morning. The choice is always yours. The consequences are always visible." },
-  { q: "Is my data safe?", a: "Yes. Raw usage data is processed locally on your device where possible. Only aggregated insights sync to our servers. We never sell your data to anyone, ever. You can delete everything permanently at any time from app settings." },
-  { q: "Which platforms does it support?", a: "Core tracking works on all Android apps via the UsageStats API — no setup needed beyond granting access once. For deeper data, you can optionally connect YouTube, Reddit, Instagram and your Google account. Each connection is fully opt-in." },
+  { q: "Is my data safe?", a: "Yes. Raw usage data is processed locally on your device where possible. Only aggregated insights sync to our secure servers. We never sell your data to anyone, ever. You can delete everything permanently at any time from app settings." },
+  { q: "Which platforms does it support?", a: "Core tracking works on all Android apps via the UsageStatsManager API — no setup needed beyond granting access once. For deeper data, you can optionally connect YouTube, Reddit, Instagram and your Google account. Each connection is fully opt-in." },
   { q: "Does it work on iPhone?", a: "Not yet. iOS severely restricts the kind of background monitoring Warditor needs. We're Android first. iPhone support depends on what Apple allows in future updates — we're watching closely." },
-  { q: "How does the AI generate the shame report?", a: "Your usage data gets sent to our AI which reads it and writes a human-readable narrative about your day. It's not a template. It's a story, written fresh each morning, specific to what you actually did." },
+  { q: "How does the AI generate the shame report?", a: "Your usage data gets sent to our secure storage. AI then reads it and writes a human-readable narrative about your day. It's not a template. It's a story, written fresh each morning, specific to what you actually did." },
   { q: "Is there a free version?", a: "Yes. The free tier gives you 7 days of audit history, basic daily shame reports and full app usage tracking — no credit card needed. Premium unlocks full history, deep platform data, consequence correlation and the accountability partner feature for $4.99/month." },
 ]
 
