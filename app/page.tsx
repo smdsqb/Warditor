@@ -266,7 +266,7 @@ export default function Home() {
             Download Warditor. Let it watch. And tomorrow morning, read the report you deserve.
           </p>
           <a href="#" className="inline-flex items-center gap-3 bg-white text-black text-sm font-bold px-8 md:px-10 py-4 rounded-lg hover:bg-accent hover:text-white transition-colors tracking-wide">
-            ↓ Download on Android — Free
+            ↓ Download Warditor on Android
           </a>
         </RevealWrapper>
       </section>
