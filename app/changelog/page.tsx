@@ -7,14 +7,24 @@ export const metadata = {
 
 const entries = [
   {
-    version: 'v0.1',
+    version: 'v0.2',
     date: 'May 2026',
     tag: 'Latest',
     tagColor: 'bg-accent text-white',
     title: 'Website live',
     items: [
+      'App development begins, and app in linked to Firebase and Gemini Flash 2.5',
+      'Blaze plan for Firebase Console is purchased to allow secure storage of user data',
+    ],
+  },
+  {
+    version: 'v0.1',
+    date: 'May 2026',
+    tag: 'Basic',
+    tagColor: 'bg-black text-white',
+    title: 'Website live',
+    items: [
       'Landing page, About, Features, Privacy, Changelog pages shipped',
-      'AI-powered shame card with 3D tilt and depth effects',
       'Mobile responsive across all pages',
       'Google Search Console verified, sitemap submitted',
       'Open Graph meta tags for social sharing',
