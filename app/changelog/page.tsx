@@ -11,7 +11,7 @@ const entries = [
     date: 'May 2026',
     tag: 'Latest',
     tagColor: 'bg-accent text-white',
-    title: 'Website live',
+    title: 'App development and linking in progress',
     items: [
       'App development begins, and app in linked to Firebase and Gemini Flash 2.5',
       'Blaze plan for Firebase Console is purchased to allow secure storage of user data',
