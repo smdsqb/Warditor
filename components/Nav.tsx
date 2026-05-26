@@ -10,7 +10,6 @@ export default function Nav() {
   const pillRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Trigger mount animation
     const t = setTimeout(() => setMounted(true), 60)
     return () => clearTimeout(t)
   }, [])
@@ -21,7 +20,6 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change / outside click
   useEffect(() => {
     if (!open) return
     const onClick = (e: MouseEvent) => {
@@ -40,64 +38,71 @@ export default function Nav() {
   return (
     <>
       <style>{`
-        /* Island entrance */
         @keyframes islandIn {
-          0%   { opacity: 0; transform: translateX(-50%) scaleX(0.15) scaleY(0.5); }
-          60%  { transform: translateX(-50%) scaleX(1.04) scaleY(1.02); }
-          80%  { transform: translateX(-50%) scaleX(0.98) scaleY(0.99); }
+          0%   { opacity: 0; transform: translateX(-50%) scaleX(0.12) scaleY(0.4); }
+          65%  { opacity: 1; transform: translateX(-50%) scaleX(1.03) scaleY(1.02); }
+          82%  { transform: translateX(-50%) scaleX(0.985) scaleY(0.99); }
           100% { opacity: 1; transform: translateX(-50%) scaleX(1) scaleY(1); }
         }
 
-        /* Hover breath */
-        @keyframes islandBreathe {
-          0%,100% { box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 0 rgba(230,56,41,0); }
-          50%      { box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 4px rgba(230,56,41,0.12); }
-        }
-
-        /* Mobile menu drop */
         @keyframes menuDrop {
-          0%   { opacity: 0; transform: translateY(-8px) scaleY(0.85); }
-          100% { opacity: 1; transform: translateY(0)   scaleY(1); }
+          0%   { opacity: 0; transform: translateX(-50%) translateY(-10px) scaleY(0.88); }
+          100% { opacity: 1; transform: translateX(-50%) translateY(0)      scaleY(1); }
         }
 
+        @keyframes ctaGlow {
+          0%,100% { box-shadow: 0 0 0 0 rgba(230,56,41,0); }
+          50%      { box-shadow: 0 0 18px 4px rgba(230,56,41,0.35); }
+        }
+
+        /* Base pill — hidden until mounted */
         .island-pill {
           position: fixed;
-          top: 18px;
+          top: 20px;
           left: 50%;
-          transform: translateX(-50%) scaleX(0.15) scaleY(0.5);
+          /* default (pre-mount) state */
+          transform: translateX(-50%) scaleX(0.12) scaleY(0.4);
           opacity: 0;
           z-index: 9000;
           background: #0a0a0a;
           border-radius: 100px;
-          border: 1px solid rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.12);
           display: flex;
           align-items: center;
-          gap: 0;
+          /* NO animation here — only on .mounted */
+          box-shadow: 0 8px 36px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.07) inset;
+          will-change: box-shadow, top, padding;
+          /* Transitions for AFTER the entrance — padding, shadow, top only. NOT transform. */
           transition:
-            width       0.45s cubic-bezier(.34,1.56,.64,1),
-            padding     0.45s cubic-bezier(.34,1.56,.64,1),
-            box-shadow  0.3s ease,
-            top         0.3s ease;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.06) inset;
-          will-change: transform, width;
-          transform-origin: center center;
-          overflow: hidden;
+            padding      0.4s cubic-bezier(.34,1.4,.64,1),
+            gap          0.4s cubic-bezier(.34,1.4,.64,1),
+            box-shadow   0.3s ease,
+            top          0.3s ease;
         }
 
+        /* Run the entrance animation once */
         .island-pill.mounted {
-          animation: islandIn 0.7s cubic-bezier(.34,1.56,.64,1) forwards;
+          animation: islandIn 0.72s cubic-bezier(.34,1.56,.64,1) forwards;
         }
 
-        .island-pill.scrolled {
-          top: 12px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06) inset;
+        /* After animation settles, lock final transform so hover can't disrupt it */
+        .island-pill.settled {
+          transform: translateX(-50%) scaleX(1) scaleY(1) !important;
+          opacity: 1 !important;
+          animation: none !important;
         }
 
-        .island-pill:hover {
-          animation: islandBreathe 2s ease-in-out infinite;
+        .island-pill.settled.scrolled {
+          top: 13px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.65), 0 1px 0 rgba(255,255,255,0.07) inset;
         }
 
-        /* Indicator dot that pulses under active link */
+        /* Hover: only box-shadow — no transform, no animation conflict */
+        .island-pill.settled:hover {
+          box-shadow: 0 10px 44px rgba(0,0,0,0.55), 0 0 0 3px rgba(230,56,41,0.14), 0 1px 0 rgba(255,255,255,0.07) inset;
+        }
+
+        /* Link underline indicator */
         .nav-link-wrap {
           position: relative;
           display: flex;
@@ -105,186 +110,92 @@ export default function Nav() {
         }
         .nav-link-indicator {
           position: absolute;
-          bottom: -2px;
+          bottom: -1px;
           left: 50%;
           transform: translateX(-50%) scaleX(0);
-          width: 16px;
+          width: 18px;
           height: 2px;
           background: #e63829;
           border-radius: 2px;
-          transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
+          transition: transform 0.22s cubic-bezier(.34,1.56,.64,1);
         }
         .nav-link-wrap:hover .nav-link-indicator {
           transform: translateX(-50%) scaleX(1);
         }
 
-        /* CTA button micro-pulse */
-        @keyframes ctaGlow {
-          0%,100% { box-shadow: 0 0 0 0 rgba(230,56,41,0); }
-          50%      { box-shadow: 0 0 14px 3px rgba(230,56,41,0.3); }
+        /* CTA pulse — only when settled */
+        .cta-btn-pill {
+          animation: ctaGlow 3.5s ease-in-out infinite;
+          transition: background 0.2s, padding 0.4s cubic-bezier(.34,1.4,.64,1);
         }
-        .cta-btn { animation: ctaGlow 3s ease-in-out infinite; }
-        .cta-btn:hover { animation: none; }
+        .cta-btn-pill:hover {
+          animation: none;
+          box-shadow: none;
+        }
 
-        /* Mobile menu island */
+        /* Notch dot */
+        .island-notch {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #e63829;
+          box-shadow: 0 0 6px 2px rgba(230,56,41,0.55);
+          flex-shrink: 0;
+          transition: width .3s ease, height .3s ease, box-shadow .3s ease;
+        }
+        .island-notch.large {
+          width: 9px;
+          height: 9px;
+          box-shadow: 0 0 12px 4px rgba(230,56,41,0.7);
+        }
+
+        /* Logo spans */
+        .island-logo-span {
+          font-family: var(--font-bebas);
+          transition: font-size 0.4s cubic-bezier(.34,1.4,.64,1), letter-spacing 0.4s ease;
+          line-height: 1;
+        }
+
+        /* Divider */
+        .island-divider {
+          width: 1px;
+          background: rgba(255,255,255,0.1);
+          flex-shrink: 0;
+          transition: height 0.4s ease;
+        }
+
+        /* Mobile menu */
         .mobile-island {
           position: fixed;
-          top: 74px;
+          top: 78px;
           left: 50%;
-          transform: translateX(-50%);
+          transform: translateX(-50%) translateY(-10px) scaleY(0.88);
+          opacity: 0;
           z-index: 8999;
           background: #0d0d0d;
-          border-radius: 24px;
+          border-radius: 26px;
           border: 1px solid rgba(255,255,255,0.1);
-          box-shadow: 0 16px 48px rgba(0,0,0,0.6);
-          animation: menuDrop 0.28s cubic-bezier(.34,1.2,.64,1) forwards;
+          box-shadow: 0 20px 56px rgba(0,0,0,0.65);
+          animation: menuDrop 0.3s cubic-bezier(.34,1.2,.64,1) forwards;
           overflow: hidden;
           transform-origin: top center;
         }
-
-        /* Notch accent in pill */
-        .island-notch {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #e63829;
-          box-shadow: 0 0 6px 2px rgba(230,56,41,0.5);
-          flex-shrink: 0;
-          transition: all 0.3s ease;
-        }
-        .island-notch.active {
-          width: 8px;
-          height: 8px;
-          box-shadow: 0 0 10px 3px rgba(230,56,41,0.7);
-        }
-
-        /* Logo text transition */
-        .island-logo-text {
-          transition: letter-spacing 0.4s ease, font-size 0.4s ease;
-        }
       `}</style>
 
-      {/* ── MAIN PILL ── */}
-      <div
-        ref={pillRef}
-        className={`island-pill ${mounted ? 'mounted' : ''} ${scrolled ? 'scrolled' : ''}`}
-        style={{
-          paddingLeft:  scrolled ? '14px' : '18px',
-          paddingRight: scrolled ? '14px' : '18px',
-          paddingTop:   scrolled ? '8px'  : '10px',
-          paddingBottom: scrolled ? '8px' : '10px',
-          gap: scrolled ? '16px' : '24px',
-        }}
-      >
-        {/* Live dot */}
-        <div className={`island-notch ${!scrolled ? 'active' : ''}`} />
+      <IslandPill
+        pillRef={pillRef}
+        mounted={mounted}
+        scrolled={scrolled}
+        hoveredLink={hoveredLink}
+        setHoveredLink={setHoveredLink}
+        open={open}
+        setOpen={setOpen}
+        links={links}
+      />
 
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-baseline gap-0 flex-shrink-0"
-          onClick={() => setOpen(false)}
-        >
-          <span
-            className="island-logo-text text-white"
-            style={{
-              fontFamily: 'var(--font-bebas)',
-              letterSpacing: scrolled ? '2px' : '3px',
-              fontSize: scrolled ? '20px' : '24px',
-            }}
-          >WARD</span>
-          <span
-            className="island-logo-text"
-            style={{
-              fontFamily: 'var(--font-bebas)',
-              letterSpacing: scrolled ? '2px' : '3px',
-              fontSize: scrolled ? '20px' : '24px',
-              color: '#e63829',
-            }}
-          >I</span>
-          <span
-            className="island-logo-text text-white"
-            style={{
-              fontFamily: 'var(--font-bebas)',
-              letterSpacing: scrolled ? '2px' : '3px',
-              fontSize: scrolled ? '20px' : '24px',
-            }}
-          >TOR</span>
-        </Link>
-
-        {/* Divider */}
-        <div style={{ width: '1px', height: '18px', background: 'rgba(255,255,255,0.1)', flexShrink: 0 }} />
-
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-1 list-none m-0 p-0">
-          {links.map((l) => (
-            <li key={l.href}>
-              <div
-                className="nav-link-wrap"
-                onMouseEnter={() => setHoveredLink(l.href)}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                <Link
-                  href={l.href}
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '11px',
-                    letterSpacing: '2px',
-                    textTransform: 'uppercase',
-                    color: hoveredLink === l.href ? '#ffffff' : 'rgba(255,255,255,0.5)',
-                    transition: 'color 0.2s',
-                    padding: '4px 10px',
-                    display: 'block',
-                  }}
-                >
-                  {l.label}
-                </Link>
-                <div className="nav-link-indicator" />
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA — desktop */}
-        <a
-          href="#download"
-          className="cta-btn hidden md:flex items-center gap-1.5 flex-shrink-0"
-          style={{
-            background: '#e63829',
-            color: '#fff',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '11px',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            padding: scrolled ? '6px 14px' : '8px 16px',
-            borderRadius: '100px',
-            fontWeight: 700,
-            transition: 'background 0.2s, padding 0.4s ease, box-shadow 0.2s',
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#c8301f' }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#e63829' }}
-        >
-          ↓ Download
-        </a>
-
-        {/* Hamburger — mobile */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center gap-1.5"
-          style={{ width: '32px', height: '32px', padding: '4px', flexShrink: 0 }}
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <span style={{ display: 'block', width: '18px', height: '1.5px', background: 'white', borderRadius: '2px', transition: 'all 0.25s', transform: open ? 'rotate(45deg) translate(2px, 2px)' : 'none', transformOrigin: 'center' }} />
-          <span style={{ display: 'block', width: '18px', height: '1.5px', background: 'white', borderRadius: '2px', transition: 'opacity 0.25s', opacity: open ? 0 : 1 }} />
-          <span style={{ display: 'block', width: '18px', height: '1.5px', background: 'white', borderRadius: '2px', transition: 'all 0.25s', transform: open ? 'rotate(-45deg) translate(2px, -2px)' : 'none', transformOrigin: 'center' }} />
-        </button>
-      </div>
-
-      {/* ── MOBILE MENU ISLAND ── */}
       {open && (
-        <div className="mobile-island md:hidden" style={{ width: 'calc(100vw - 40px)', maxWidth: '380px' }}>
-          <div style={{ padding: '8px' }}>
+        <div className="mobile-island md:hidden" style={{ width: 'calc(100vw - 48px)', maxWidth: '400px' }}>
+          <div style={{ padding: '10px' }}>
             {links.map((l, i) => (
               <Link
                 key={l.href}
@@ -294,17 +205,17 @@ export default function Nav() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  padding: '14px 16px',
-                  borderRadius: '16px',
+                  padding: '15px 18px',
+                  borderRadius: '18px',
                   fontFamily: 'var(--font-bebas)',
-                  fontSize: '22px',
+                  fontSize: '24px',
                   letterSpacing: '3px',
-                  color: 'rgba(255,255,255,0.8)',
+                  color: 'rgba(255,255,255,0.75)',
                   transition: 'background 0.15s, color 0.15s',
-                  borderBottom: i < links.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderBottom: i < links.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
                 }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.05)'; el.style.color = '#fff' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.color = 'rgba(255,255,255,0.8)' }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.color = 'rgba(255,255,255,0.75)' }}
               >
                 {l.label.toUpperCase()}
                 <span style={{ color: '#e63829', fontSize: '16px' }}>→</span>
@@ -324,8 +235,8 @@ export default function Nav() {
                   letterSpacing: '2px',
                   textTransform: 'uppercase',
                   fontWeight: 700,
-                  padding: '14px',
-                  borderRadius: '14px',
+                  padding: '15px',
+                  borderRadius: '16px',
                 }}
               >
                 ↓ Download on Android
@@ -335,5 +246,132 @@ export default function Nav() {
         </div>
       )}
     </>
+  )
+}
+
+/* Separated so we can use a local settled state cleanly */
+function IslandPill({
+  pillRef, mounted, scrolled, hoveredLink, setHoveredLink, open, setOpen, links
+}: {
+  pillRef: React.RefObject<HTMLDivElement>
+  mounted: boolean
+  scrolled: boolean
+  hoveredLink: string | null
+  setHoveredLink: (v: string | null) => void
+  open: boolean
+  setOpen: (v: boolean) => void
+  links: { href: string; label: string }[]
+}) {
+  const [settled, setSettled] = useState(false)
+
+  useEffect(() => {
+    if (!mounted) return
+    // Lock final state after animation completes (720ms + small buffer)
+    const t = setTimeout(() => setSettled(true), 800)
+    return () => clearTimeout(t)
+  }, [mounted])
+
+  const logoSize   = scrolled ? '22px' : '28px'
+  const logoSpacing = scrolled ? '2px'  : '3.5px'
+  const pillPadH   = scrolled ? '16px' : '22px'
+  const pillPadV   = scrolled ? '9px'  : '13px'
+  const pillGap    = scrolled ? '18px' : '28px'
+  const dividerH   = scrolled ? '16px' : '22px'
+  const ctaPad     = scrolled ? '7px 16px' : '10px 22px'
+
+  return (
+    <div
+      ref={pillRef}
+      className={[
+        'island-pill',
+        mounted  ? 'mounted'  : '',
+        settled  ? 'settled'  : '',
+        scrolled ? 'scrolled' : '',
+      ].join(' ')}
+      style={{
+        paddingLeft:   pillPadH,
+        paddingRight:  pillPadH,
+        paddingTop:    pillPadV,
+        paddingBottom: pillPadV,
+        gap: pillGap,
+      }}
+    >
+      {/* Live dot */}
+      <div className={`island-notch ${!scrolled ? 'large' : ''}`} />
+
+      {/* Logo */}
+      <Link href="/" className="flex items-baseline gap-0 flex-shrink-0" onClick={() => setOpen(false)}>
+        <span className="island-logo-span text-white" style={{ fontSize: logoSize, letterSpacing: logoSpacing }}>WARD</span>
+        <span className="island-logo-span" style={{ fontSize: logoSize, letterSpacing: logoSpacing, color: '#e63829' }}>I</span>
+        <span className="island-logo-span text-white" style={{ fontSize: logoSize, letterSpacing: logoSpacing }}>TOR</span>
+      </Link>
+
+      {/* Divider */}
+      <div className="island-divider" style={{ height: dividerH }} />
+
+      {/* Desktop links */}
+      <ul className="hidden md:flex items-center gap-0 list-none m-0 p-0">
+        {links.map((l) => (
+          <li key={l.href}>
+            <div
+              className="nav-link-wrap"
+              onMouseEnter={() => setHoveredLink(l.href)}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <Link
+                href={l.href}
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11.5px',
+                  letterSpacing: '2.5px',
+                  textTransform: 'uppercase',
+                  color: hoveredLink === l.href ? '#ffffff' : 'rgba(255,255,255,0.48)',
+                  transition: 'color 0.2s',
+                  padding: '5px 13px',
+                  display: 'block',
+                }}
+              >
+                {l.label}
+              </Link>
+              <div className="nav-link-indicator" />
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA */}
+      <a
+        href="#download"
+        className="cta-btn-pill hidden md:flex items-center gap-1.5 flex-shrink-0"
+        style={{
+          background: '#e63829',
+          color: '#fff',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '11px',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          padding: ctaPad,
+          borderRadius: '100px',
+          fontWeight: 700,
+          whiteSpace: 'nowrap',
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#c8301f' }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#e63829' }}
+      >
+        ↓ Download
+      </a>
+
+      {/* Hamburger */}
+      <button
+        className="md:hidden flex flex-col justify-center items-center"
+        style={{ width: '34px', height: '34px', padding: '5px', flexShrink: 0, gap: '5px' }}
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+      >
+        <span style={{ display: 'block', width: '19px', height: '1.5px', background: 'white', borderRadius: '2px', transition: 'all 0.25s', transform: open ? 'rotate(45deg) translate(2px, 3.5px)' : 'none' }} />
+        <span style={{ display: 'block', width: '19px', height: '1.5px', background: 'white', borderRadius: '2px', transition: 'opacity 0.25s', opacity: open ? 0 : 1 }} />
+        <span style={{ display: 'block', width: '19px', height: '1.5px', background: 'white', borderRadius: '2px', transition: 'all 0.25s', transform: open ? 'rotate(-45deg) translate(2px, -3.5px)' : 'none' }} />
+      </button>
+    </div>
   )
 }
