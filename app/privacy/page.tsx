@@ -8,7 +8,7 @@ const sections = [
     title: 'What we collect',
     content: [
       'App usage data — which apps were open, for how long, and how many times (via Android UsageStats API)',
-      'Platform data — only if you explicitly connect YouTube, Reddit, Instagram or Google accounts via OAuth',
+      'Platform data — only if you explicitly connect YouTube, Reddit, Discord, Github or Google accounts via OAuth',
       'Account information — email address for account creation and authentication',
       'Usage patterns — aggregated insights derived from your raw usage data',
     ],
@@ -35,10 +35,10 @@ const sections = [
   {
     title: 'Data storage and security',
     content: [
-      'Your data is stored securely on Firebase (Google Cloud) with encryption at rest',
+      'Your data is stored securely on Supabase with encryption at rest',
       'Only aggregated insights are stored server-side — raw sensitive data is processed locally where possible',
       'We retain your data for as long as your account is active, or 30 days after deletion',
-      'You can request full data deletion at any time by contacting us',
+      'You can request full data deletion at any time by contacting us or deleting your data in the app',
     ],
   },
   {
@@ -53,9 +53,9 @@ const sections = [
   {
     title: 'Third party services',
     content: [
-      'Firebase (Google) — authentication and data storage',
+      'Supabase — authentication and data storage',
       'Gemini — AI processing of usage data to generate reports (data is not retained by Gemini)',
-      'YouTube, Reddit, Instagram APIs — only accessed if you explicitly connect your accounts',
+      'YouTube, Reddit, Discord, Github and Google APIs — only accessed if you explicitly connect your accounts',
       'Razorpay — payment processing for Premium subscriptions (we do not store card details)',
     ],
   },
@@ -77,7 +77,7 @@ export default function Privacy() {
       <h1 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(48px, 6vw, 80px)', letterSpacing: '3px', lineHeight: 1 }} className="text-black mb-4">
         PRIVACY<br />POLICY
       </h1>
-      <p className="text-sm font-light text-muted mb-2">Last updated: May 2026</p>
+      <p className="text-sm font-light text-muted mb-2">Last updated: 26th May 2026</p>
       <p className="text-base font-light text-muted leading-relaxed mb-16 max-w-xl">
         We know you&apos;re trusting us with sensitive data. We take that seriously. This policy is written in plain English — not legal jargon — because you deserve to actually understand it.
       </p>
