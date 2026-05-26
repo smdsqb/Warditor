@@ -13,8 +13,9 @@ const entries = [
     tagColor: 'bg-accent text-white',
     title: 'App development and linking in progress',
     items: [
-      'App development begins, and app in linked to Firebase and Gemini Flash 2.5',
-      'Blaze plan for Firebase Console is purchased to allow secure storage of user data',
+      'App development begins, and is linked to Supabase Gemini Flash 2.5 and other services',
+      'Testing for APIs start to ensure smooth delivery to users',
+      'Currently available OAuth services are YouTube, Google, Reddit, Discord and Github',
     ],
   },
   {
@@ -39,17 +40,17 @@ const entries = [
     items: [
       'Identified the core problem — no productivity app makes you feel your wasted time',
       'Android-first, no blocking, AI narrative as the differentiator',
-      'Tech stack decided — Next.js, Flutter/Stitch, Firebase, Gemini AI',
+      'Tech stack decided — Next.js, Flutter/Stitch, Supabase, Gemini AI',
     ],
   },
 ]
 
 const upcoming = [
   { label: 'Android app beta', status: 'In progress' },
-  { label: 'Firebase + Gemini AI integration', status: 'In progress' },
-  { label: 'UsageStatsManager API', status: 'Planned' },
-  { label: 'YouTube, Reddit, Instagram API connections', status: 'Planned' },
-  { label: 'Google Activity API', status: 'Planned' },
+  { label: 'Supabase + Gemini AI integration', status: 'In progress' },
+  { label: 'UsageStatsManager API', status: 'Successful' },
+  { label: 'YouTube, Reddit, Discord and Github API connections', status: 'Testing' },
+  { label: 'Google Activity API', status: 'Successful' },
   { label: 'Razorpay payment integration', status: 'Planned' },
   { label: 'Consequence correlation engine', status: 'Planned' },
   { label: 'Accountability partner feature', status: 'Planned' },
