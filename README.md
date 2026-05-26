@@ -227,7 +227,7 @@ RAZORPAY_KEY_SECRET=
 - [ ] Gemini AI shame report generation
 - [x] UsageStatsManager API integration
 - [x] YouTube / Reddit / Discord / Github API connections
-- [ ] Google Activity API integration
+- [x] Google Activity API integration
 - [ ] Razorpay payment integration
 - [ ] Accountability partner feature
 - [ ] Consequence correlation engine
