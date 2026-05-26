@@ -14,43 +14,45 @@ export default function Nav() {
   const [mounted,     setMounted]     = useState(false)
   const [settled,     setSettled]     = useState(false)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
-  const pillRef = useRef<HTMLDivElement>(null)
+  const pillRef       = useRef<HTMLDivElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
-  /* Mount entrance */
   useEffect(() => {
     const t1 = setTimeout(() => setMounted(true), 60)
-    const t2 = setTimeout(() => setSettled(true), 860) // after 720ms anim + buffer
+    const t2 = setTimeout(() => setSettled(true), 860)
     return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [])
 
-  /* Scroll shrink */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  /* Outside-click closes menu — skip on touch (touch fires mousedown too, but
-     the pill contains the button so it won't fire for inside taps anyway) */
+  /* Close on outside click/tap — must NOT fire when tapping inside the mobile menu */
   useEffect(() => {
     if (!open) return
-    const onClick = (e: MouseEvent) => {
-      if (pillRef.current && !pillRef.current.contains(e.target as Node)) {
-        setOpen(false)
-      }
+    const close = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node
+      if (pillRef.current?.contains(target)) return
+      if (mobileMenuRef.current?.contains(target)) return
+      setOpen(false)
     }
-    document.addEventListener('mousedown', onClick)
-    return () => document.removeEventListener('mousedown', onClick)
+    document.addEventListener('mousedown', close)
+    document.addEventListener('touchstart', close, { passive: true })
+    return () => {
+      document.removeEventListener('mousedown', close)
+      document.removeEventListener('touchstart', close)
+    }
   }, [open])
 
-  /* Responsive sizing */
-  const logoSize    = scrolled ? '22px'      : '28px'
-  const logoKern    = scrolled ? '2px'       : '3.5px'
-  const pillPadH    = scrolled ? '16px'      : '22px'
-  const pillPadV    = scrolled ? '9px'       : '13px'
-  const pillGap     = scrolled ? '18px'      : '28px'
-  const dividerH    = scrolled ? '16px'      : '22px'
-  const ctaPad      = scrolled ? '7px 16px'  : '10px 22px'
+  const logoSize  = scrolled ? '22px'     : '28px'
+  const logoKern  = scrolled ? '2px'      : '3.5px'
+  const pillPadH  = scrolled ? '16px'     : '22px'
+  const pillPadV  = scrolled ? '9px'      : '13px'
+  const pillGap   = scrolled ? '18px'     : '28px'
+  const dividerH  = scrolled ? '16px'     : '22px'
+  const ctaPad    = scrolled ? '7px 16px' : '10px 22px'
 
   const pillClass = [
     'island-pill',
@@ -69,7 +71,7 @@ export default function Nav() {
           100% { opacity:1; transform:translateX(-50%) scaleX(1) scaleY(1); }
         }
         @keyframes menuDrop {
-          0%   { opacity:0; transform:translateX(-50%) translateY(-10px) scaleY(0.88); }
+          0%   { opacity:0; transform:translateX(-50%) translateY(-10px) scaleY(0.9); }
           100% { opacity:1; transform:translateX(-50%) translateY(0) scaleY(1); }
         }
         @keyframes ctaGlow {
@@ -86,9 +88,8 @@ export default function Nav() {
           border:1px solid rgba(255,255,255,0.12);
           display:flex; align-items:center;
           box-shadow:0 8px 36px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.07) inset;
-          will-change:box-shadow,top;
           transition: padding .4s cubic-bezier(.34,1.4,.64,1),
-                      gap     .4s cubic-bezier(.34,1.4,.64,1),
+                      gap .4s cubic-bezier(.34,1.4,.64,1),
                       box-shadow .3s ease, top .3s ease;
         }
         .island-pill.mounted {
@@ -107,58 +108,64 @@ export default function Nav() {
           box-shadow:0 10px 44px rgba(0,0,0,0.55), 0 0 0 3px rgba(230,56,41,0.14),
                      0 1px 0 rgba(255,255,255,0.07) inset;
         }
-
         .island-notch {
           width:7px; height:7px; border-radius:50%;
           background:#e63829; box-shadow:0 0 6px 2px rgba(230,56,41,0.55);
           flex-shrink:0;
           transition:width .3s ease, height .3s ease, box-shadow .3s ease;
         }
-        .island-notch.large {
-          width:9px; height:9px;
-          box-shadow:0 0 12px 4px rgba(230,56,41,0.7);
-        }
-
+        .island-notch.large { width:9px; height:9px; box-shadow:0 0 12px 4px rgba(230,56,41,0.7); }
         .island-logo-span {
           font-family:var(--font-bebas);
           transition:font-size .4s cubic-bezier(.34,1.4,.64,1), letter-spacing .4s ease;
           line-height:1;
         }
-        .island-divider {
-          width:1px; background:rgba(255,255,255,0.1);
-          flex-shrink:0; transition:height .4s ease;
-        }
-
+        .island-divider { width:1px; background:rgba(255,255,255,0.1); flex-shrink:0; transition:height .4s ease; }
         .nav-link-wrap { position:relative; display:flex; align-items:center; }
         .nav-link-indicator {
           position:absolute; bottom:-1px; left:50%;
           transform:translateX(-50%) scaleX(0);
-          width:18px; height:2px;
-          background:#e63829; border-radius:2px;
+          width:18px; height:2px; background:#e63829; border-radius:2px;
           transition:transform .22s cubic-bezier(.34,1.56,.64,1);
         }
         .nav-link-wrap:hover .nav-link-indicator { transform:translateX(-50%) scaleX(1); }
-
         .cta-btn-pill {
           animation:ctaGlow 3.5s ease-in-out infinite;
           transition:background .2s, padding .4s cubic-bezier(.34,1.4,.64,1);
         }
         .cta-btn-pill:hover { animation:none; box-shadow:none; }
 
-        /* Mobile menu island */
+        /* Mobile menu */
         .mobile-island {
           position:fixed; top:78px; left:50%;
-          transform:translateX(-50%) translateY(-10px) scaleY(0.88);
+          transform:translateX(-50%) translateY(-10px) scaleY(0.9);
           opacity:0; z-index:8999;
           background:#0d0d0d;
           border-radius:26px;
           border:1px solid rgba(255,255,255,0.1);
           box-shadow:0 20px 56px rgba(0,0,0,0.65);
-          animation:menuDrop .3s cubic-bezier(.34,1.2,.64,1) forwards;
-          overflow:hidden; transform-origin:top center;
+          animation:menuDrop .28s cubic-bezier(.34,1.2,.64,1) forwards;
+          /* NO overflow:hidden — it clips touch targets */
+          transform-origin:top center;
         }
+        .mobile-menu-link {
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          padding:15px 18px;
+          border-radius:18px;
+          font-family:var(--font-bebas);
+          font-size:24px;
+          letter-spacing:3px;
+          color:rgba(255,255,255,0.75);
+          text-decoration:none;
+          -webkit-tap-highlight-color:transparent;
+          /* Large touch target */
+          min-height:54px;
+          cursor:pointer;
+        }
+        .mobile-menu-link:active { background:rgba(255,255,255,0.08) !important; color:#fff !important; }
 
-        /* Disable custom cursor on touch */
         @media (hover:none) {
           .cursor-dot, .cursor-ring { display:none !important; }
         }
@@ -168,49 +175,24 @@ export default function Nav() {
       <div
         ref={pillRef}
         className={pillClass}
-        style={{
-          paddingLeft:   pillPadH,
-          paddingRight:  pillPadH,
-          paddingTop:    pillPadV,
-          paddingBottom: pillPadV,
-          gap: pillGap,
-        }}
+        style={{ paddingLeft:pillPadH, paddingRight:pillPadH, paddingTop:pillPadV, paddingBottom:pillPadV, gap:pillGap }}
       >
-        {/* Live dot */}
         <div className={`island-notch${!scrolled ? ' large' : ''}`} />
 
-        {/* Logo */}
         <Link href="/" className="flex items-baseline gap-0 flex-shrink-0" onClick={() => setOpen(false)}>
-          <span className="island-logo-span text-white"   style={{ fontSize: logoSize, letterSpacing: logoKern }}>WARD</span>
-          <span className="island-logo-span"              style={{ fontSize: logoSize, letterSpacing: logoKern, color: '#e63829' }}>I</span>
-          <span className="island-logo-span text-white"   style={{ fontSize: logoSize, letterSpacing: logoKern }}>TOR</span>
+          <span className="island-logo-span text-white"  style={{ fontSize:logoSize, letterSpacing:logoKern }}>WARD</span>
+          <span className="island-logo-span"             style={{ fontSize:logoSize, letterSpacing:logoKern, color:'#e63829' }}>I</span>
+          <span className="island-logo-span text-white"  style={{ fontSize:logoSize, letterSpacing:logoKern }}>TOR</span>
         </Link>
 
-        {/* Divider */}
-        <div className="island-divider" style={{ height: dividerH }} />
+        <div className="island-divider" style={{ height:dividerH }} />
 
-        {/* Desktop nav links */}
+        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-0 list-none m-0 p-0">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <div
-                className="nav-link-wrap"
-                onMouseEnter={() => setHoveredLink(l.href)}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                <Link
-                  href={l.href}
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '11.5px',
-                    letterSpacing: '2.5px',
-                    textTransform: 'uppercase',
-                    color: hoveredLink === l.href ? '#ffffff' : 'rgba(255,255,255,0.48)',
-                    transition: 'color 0.2s',
-                    padding: '5px 13px',
-                    display: 'block',
-                  }}
-                >
+              <div className="nav-link-wrap" onMouseEnter={() => setHoveredLink(l.href)} onMouseLeave={() => setHoveredLink(null)}>
+                <Link href={l.href} style={{ fontFamily:'var(--font-mono)', fontSize:'11.5px', letterSpacing:'2.5px', textTransform:'uppercase', color: hoveredLink === l.href ? '#fff' : 'rgba(255,255,255,0.48)', transition:'color 0.2s', padding:'5px 13px', display:'block' }}>
                   {l.label}
                 </Link>
                 <div className="nav-link-indicator" />
@@ -220,31 +202,18 @@ export default function Nav() {
         </ul>
 
         {/* Desktop CTA */}
-        <a
-          href="#download"
-          className="cta-btn-pill hidden md:flex items-center gap-1.5 flex-shrink-0"
-          style={{
-            background: '#e63829',
-            color: '#fff',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '11px',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            padding: ctaPad,
-            borderRadius: '100px',
-            fontWeight: 700,
-            whiteSpace: 'nowrap',
-          }}
+        <a href="#download" className="cta-btn-pill hidden md:flex items-center gap-1.5 flex-shrink-0"
+          style={{ background:'#e63829', color:'#fff', fontFamily:'var(--font-mono)', fontSize:'11px', letterSpacing:'2px', textTransform:'uppercase', padding:ctaPad, borderRadius:'100px', fontWeight:700, whiteSpace:'nowrap' }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#c8301f' }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#e63829' }}
         >
           ↓ Download
         </a>
 
-        {/* Hamburger — mobile only */}
+        {/* Hamburger */}
         <button
           className="md:hidden flex flex-col justify-center items-center"
-          style={{ width: '34px', height: '34px', padding: '5px', flexShrink: 0, gap: '5px', background: 'transparent', border: 'none', cursor: 'pointer' }}
+          style={{ width:'34px', height:'34px', padding:'5px', flexShrink:0, gap:'5px', background:'transparent', border:'none', cursor:'pointer' }}
           onClick={() => setOpen(prev => !prev)}
           aria-label="Toggle menu"
           type="button"
@@ -257,53 +226,27 @@ export default function Nav() {
 
       {/* ── MOBILE MENU ISLAND ── */}
       {open && (
-        <div
-          className="mobile-island md:hidden"
-          style={{ width: 'calc(100vw - 48px)', maxWidth: '400px' }}
-        >
-          <div style={{ padding: '10px' }}>
+        <div ref={mobileMenuRef} className="mobile-island md:hidden" style={{ width:'calc(100vw - 48px)', maxWidth:'400px' }}>
+          <div style={{ padding:'10px' }}>
             {NAV_LINKS.map((l, i) => (
-              <Link
+              /* Plain <a> — avoids Next.js Link touch interception issues */
+              <a
                 key={l.href}
                 href={l.href}
+                className="mobile-menu-link"
+                style={{ borderBottom: i < NAV_LINKS.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
                 onClick={() => setOpen(false)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '15px 18px',
-                  borderRadius: '18px',
-                  fontFamily: 'var(--font-bebas)',
-                  fontSize: '24px',
-                  letterSpacing: '3px',
-                  color: 'rgba(255,255,255,0.75)',
-                  borderBottom: i < NAV_LINKS.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                  WebkitTapHighlightColor: 'transparent',
-                }}
               >
                 {l.label.toUpperCase()}
-                <span style={{ color: '#e63829', fontSize: '16px' }}>→</span>
-              </Link>
+                <span style={{ color:'#e63829', fontSize:'16px', flexShrink:0 }}>→</span>
+              </a>
             ))}
 
-            <div style={{ padding: '8px', paddingTop: '6px' }}>
+            <div style={{ padding:'8px', paddingTop:'6px' }}>
               <a
                 href="#download"
                 onClick={() => setOpen(false)}
-                style={{
-                  display: 'block',
-                  textAlign: 'center',
-                  background: '#e63829',
-                  color: '#fff',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                  padding: '15px',
-                  borderRadius: '16px',
-                  WebkitTapHighlightColor: 'transparent',
-                }}
+                style={{ display:'block', textAlign:'center', background:'#e63829', color:'#fff', fontFamily:'var(--font-mono)', fontSize:'11px', letterSpacing:'2px', textTransform:'uppercase', fontWeight:700, padding:'15px', borderRadius:'16px', WebkitTapHighlightColor:'transparent', textDecoration:'none' }}
               >
                 ↓ Download on Android
               </a>
