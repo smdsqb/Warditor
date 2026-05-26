@@ -43,9 +43,9 @@ Android App (UsageStatsManager API)
         ↓
 Tracks which apps were open, for how long, how many times
         ↓
-Firebase (Firestore) — stores usage data
+Supabase — stores usage data
         ↓
-Optional: YouTube API, Reddit API, Instagram API, Google Activity API
+Optional: YouTube API, Reddit API, Discord API, Reddit API, Google Activity API
         ↓
 Gemini 2.5 Flash AI — generates personalised shame report narrative
         ↓
@@ -69,8 +69,8 @@ User reads their daily audit and feels it
 |---|---|
 | Flutter | Cross-platform Android app |
 | UsageStatsManager API | Native Android app usage tracking |
-| Firebase Auth | User authentication |
-| Firestore | Usage data storage |
+| Supabase Auth | User authentication |
+| Supabase | Usage data storage |
 | Gemini API | AI shame report generation |
 | Razorpay | Payment processing |
 
@@ -81,7 +81,8 @@ User reads their daily audit and feels it
 | Google My Activity API | Chrome and web activity (if user connects) |
 | YouTube Data API | Specific video watch data |
 | Reddit API | Subreddit and post browsing data |
-| Instagram Graph API | Session and activity data |
+| Github API | Session and activity data |
+| Discord API | Session and activity data |
 
 ---
 
@@ -126,7 +127,7 @@ Every morning Warditor generates a personalised narrative from your usage data. 
 Uses Android's built-in `UsageStatsManager` API. No VPN required, no shady permissions. User grants usage access once in Android settings. Warditor runs silently in the background.
 
 ### Deep Platform Integration
-Connect YouTube, Reddit, Instagram and Google accounts for granular data. Instead of "YouTube — 3.2 hours", know exactly which videos you watched, which subreddits you browsed, which rabbit holes swallowed your evening.
+Connect YouTube, Reddit, Discord, Github and Google accounts for granular data. Instead of "YouTube — 3.2 hours", know exactly which videos you watched, which subreddits you browsed, which rabbit holes swallowed your evening.
 
 ### Consequence Correlation *(Premium)*
 Over time, Warditor links your distraction patterns to real outcomes. It builds a model of your behaviour and surfaces patterns like: *"Every time you spend 3+ hours on Shorts before an exam, you score below 50%."* That's not a motivational poster. That's your own data.
@@ -135,7 +136,7 @@ Over time, Warditor links your distraction patterns to real outcomes. It builds 
 Share your daily audit with a trusted friend. Nothing changes behaviour faster than someone else reading your screen time out loud.
 
 ### Privacy First
-Raw usage data is processed locally where possible. Only aggregated insights sync to Firebase. Users can delete all data at any time. We never sell data. Full details in the privacy policy.
+Raw usage data is processed locally where possible. Only aggregated insights sync to Supabase. Users can delete all data at any time. We never sell data. Full details in the privacy policy.
 
 ---
 
@@ -145,10 +146,10 @@ Raw usage data is processed locally where possible. Only aggregated insights syn
 Every other productivity app is built around positive reinforcement — streaks, badges, trees, rewards. Warditor is built around honest confrontation. The insight from building this: people already know they're wasting time. They don't need a blocker. They need to feel the weight of it.
 
 ### No Blocker
-Warditor deliberately doesn't block anything. You can still open Instagram whenever you want. But you'll read about it tomorrow morning. That choice — knowing the audit is coming — is where the behaviour change actually lives.
+Warditor deliberately doesn't block anything. You can still open Instagram or Snapchat whenever you want. But you'll read about it tomorrow morning. That choice — knowing the audit is coming — is where the behaviour change actually lives.
 
 ### Narrative Over Numbers
-A number like "3.2 hours on YouTube" doesn't land emotionally. A sentence like "You had a Physics exam at 9am. You watched YouTube until 1am. You scored 28%." does. Groq AI generates the narrative, not the number.
+A number like "3.2 hours on YouTube" doesn't land emotionally. A sentence like "You had a Physics exam at 9am. You watched YouTube until 1am. You scored 28%." does. Gemini AI generates the narrative, not the number.
 
 ### White Theme With Depth
 The site uses a strict white and off-white palette with black and red accent — no gradients, no dark mode toggle clutter. Depth is created through:
@@ -221,11 +222,11 @@ RAZORPAY_KEY_SECRET=
 - [x] 3D tilt shame card
 - [x] Ghost word hero animations
 - [x] Grain texture depth
-- [ ] Android app (Flutter) — in development
-- [ ] Firebase backend integration
-- [ ] Groq AI shame report generation
-- [ ] UsageStatsManager API integration
-- [ ] YouTube / Reddit / Instagram API connections
+- [x] Android app (Flutter) — in development
+- [x] Supabase backend integration
+- [ ] Gemini AI shame report generation
+- [x] UsageStatsManager API integration
+- [x] YouTube / Reddit / Discord / Github API connections
 - [ ] Google Activity API integration
 - [ ] Razorpay payment integration
 - [ ] Accountability partner feature
@@ -248,12 +249,12 @@ RAZORPAY_KEY_SECRET=
 Warditor is built with privacy as a constraint, not an afterthought. Key commitments:
 
 - Raw browsing data never leaves your device unless you explicitly connect a platform
-- Only aggregated insights sync to Firebase
+- Only aggregated insights sync to Supabase
 - No data is sold to third parties. Ever.
 - Users can delete all data permanently at any time
 - Payment processing via Razorpay — we never store card details
 
-Full privacy policy: [warditor.com/privacy](https://warditor.com/privacy)
+Full privacy policy: [warditor.com/privacy](https://warditor.vercel.app/privacy)
 
 ---
 
@@ -261,8 +262,8 @@ Full privacy policy: [warditor.com/privacy](https://warditor.com/privacy)
 
 Two teenagers who got tired of lying to themselves about how they spent their time.
 
-- Saqib — Next.js website, Gemini AI integration, Firebase architecture
-- Nikhil — Android app, Flutter, Play Store, Razorpay integration
+- Saqib — Next.js website, Supabase Auth, API & Client key Management, and Marketing and Finance
+- Nikhil — Android app, Flutter, Play Store, Razorpay integration, and Supabase, Gemini, Warditor App back wiring.
 
 ---
 
