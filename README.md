@@ -262,8 +262,8 @@ Full privacy policy: [warditor.com/privacy](https://warditor.vercel.app/privacy)
 
 Two teenagers who got tired of lying to themselves about how they spent their time.
 
-- Saqib — Next.js website, Supabase Auth, API & Client key Management, and Marketing and Finance
-- Nikhil — Android app, Flutter, Play Store, Razorpay integration, and Supabase, Gemini, Warditor App back wiring.
+- Saqib — Next.js website, Supabase Auth, API & Client key Management, and Marketing & Finance.
+- Nikhil — Android app, Flutter, Play Store, Razorpay integration, and Warditor App backend wiring.
 
 ---
 
