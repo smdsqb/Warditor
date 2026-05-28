@@ -15,7 +15,7 @@ const entries = [
     items: [
       'App development begins, and is linked to Supabase Gemini Flash 2.5 and other services',
       'Testing for APIs start to ensure smooth delivery to users',
-      'Currently available OAuth services are YouTube, Google, Reddit, Discord and Github',
+      'Currently available OAuth services are YouTube, Google, Reddit, Discord, Spotify, Zoom and Github',
     ],
   },
   {
@@ -49,7 +49,7 @@ const upcoming = [
   { label: 'Android app beta', status: 'In progress' },
   { label: 'Supabase + Gemini AI integration', status: 'In progress' },
   { label: 'UsageStatsManager API', status: 'Successful' },
-  { label: 'YouTube, Reddit, Discord and Github API connections', status: 'Testing' },
+  { label: 'YouTube, Reddit, Discord, Spotify, Zoom and Github API connections', status: 'Testing' },
   { label: 'Google Activity API', status: 'Successful' },
   { label: 'Razorpay payment integration', status: 'Planned' },
   { label: 'Consequence correlation engine', status: 'Planned' },
