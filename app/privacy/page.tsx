@@ -8,7 +8,7 @@ const sections = [
     title: 'What we collect',
     content: [
       'App usage data — which apps were open, for how long, and how many times (via Android UsageStats API)',
-      'Platform data — only if you explicitly connect YouTube, Reddit, Discord, Github or Google accounts via OAuth',
+      'Platform data — only if you explicitly connect YouTube, Reddit, Discord, Github, Spotify, Zoom or Google accounts via OAuth',
       'Account information — email address for account creation and authentication',
       'Usage patterns — aggregated insights derived from your raw usage data',
     ],
@@ -55,7 +55,7 @@ const sections = [
     content: [
       'Supabase — authentication and data storage',
       'Gemini — AI processing of usage data to generate reports (data is not retained by Gemini)',
-      'YouTube, Reddit, Discord, Github and Google APIs — only accessed if you explicitly connect your accounts',
+      'YouTube, Reddit, Discord, Github, Spotify, Zoom and Google APIs — only accessed if you explicitly connect your accounts',
       'Razorpay — payment processing for Premium subscriptions (we do not store card details)',
     ],
   },
