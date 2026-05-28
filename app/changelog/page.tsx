@@ -7,21 +7,32 @@ export const metadata = {
 
 const entries = [
   {
-    version: 'v0.2',
+    version: 'v0.3',
     date: 'May 2026',
     tag: 'Latest',
     tagColor: 'bg-accent text-white',
+    title: 'More services added, app linking finished',
+    items: [
+      'More services are added such as Spotify, Zoom and Github',
+      'Warditor app is developed and is currently being tested',
+    ],
+  },
+  {
+    version: 'v0.2',
+    date: 'May 2026',
+    tag: 'Development',
+    tagColor: 'bg-black text-white',
     title: 'App development and linking in progress',
     items: [
-      'App development begins, and is linked to Supabase Gemini Flash 2.5 and other services',
-      'Testing for APIs start to ensure smooth delivery to users',
-      'Currently available OAuth services are YouTube, Google, Reddit, Discord, Spotify, Zoom and Github',
+      'App development begins, and is linked to Supabase for authentication and Firebase for storage',
+      'Testing for connected services start to ensure smooth delivery to users',
+      'Currently available OAuth services are YouTube, Google, Reddit, Discord. All of which users can optionally enable to allow a more detailed report',
     ],
   },
   {
     version: 'v0.1',
     date: 'May 2026',
-    tag: 'Basic Structure',
+    tag: 'Webpage deployed',
     tagColor: 'bg-black text-white',
     title: 'Website live',
     items: [
@@ -40,16 +51,16 @@ const entries = [
     items: [
       'Identified the core problem — no productivity app makes you feel your wasted time',
       'Android-first, no blocking, AI narrative as the differentiator',
-      'Tech stack decided — Next.js, Flutter/Stitch, Supabase, Gemini AI',
+      'Tech stack decided — Next.js, Flutter/Stitch, Supabase, Firebase, Gemini AI',
     ],
   },
 ]
 
 const upcoming = [
   { label: 'Android app beta', status: 'In progress' },
-  { label: 'Supabase + Gemini AI integration', status: 'In progress' },
+  { label: 'Supabase + Firebase + Gemini AI integration', status: 'In progress' },
   { label: 'UsageStatsManager API', status: 'Successful' },
-  { label: 'YouTube, Reddit, Discord, Spotify, Zoom and Github API connections', status: 'Testing' },
+  { label: 'YouTube, Reddit, Discord, Spotify, Zoom and Github API connections', status: 'Successful' },
   { label: 'Google Activity API', status: 'Successful' },
   { label: 'Razorpay payment integration', status: 'Planned' },
   { label: 'Consequence correlation engine', status: 'Planned' },
