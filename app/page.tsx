@@ -16,7 +16,7 @@ const steps = [
 
 const features = [
   { icon: '🧠', title: 'AI Shame Reports', desc: 'Not a dashboard. Not a bar chart. A narrative that tells you exactly what you chose to do instead — in plain, uncomfortable English.' },
-  { icon: '🔗', title: 'Deep Platform Data', desc: 'Connect YouTube, Reddit, Instagram and Google Activity. Know which videos, which subreddits, which rabbit holes swallowed your evening.' },
+  { icon: '🔗', title: 'Deep Platform Data', desc: 'Connect YouTube, Reddit, Discord, Github, Spotify, Zoom and Google Activity. Know which videos, which subreddits, which rabbit holes swallowed your evening.' },
   { icon: '📉', title: 'Consequence Correlation', desc: "Warditor links your distractions to your real outcomes over time. 4 hours of Shorts → 34% on your exam. The data doesn't forgive. Neither will you." },
   { icon: '👥', title: 'Accountability Partner', desc: "Share your audit with a trusted friend. Nothing changes behaviour faster than someone else seeing your screen time. Premium feature, but highly effective." },
 ]
