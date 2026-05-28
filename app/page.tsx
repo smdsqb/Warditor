@@ -286,8 +286,8 @@ export default function Home() {
           opacity: 0;
           transition: opacity .1s;
         }
-        .glitch-wrap:hover::before { opacity:.7; animation: glitch1 .4s steps(1) infinite; color:#ff6f61; }
-        .glitch-wrap:hover::after  { opacity:.5; animation: glitch2 .4s steps(1) infinite; color:#ff3022; }
+        .glitch-wrap::before { opacity:.7; animation: glitch1 .4s steps(1) infinite; color:#ff6f61; }
+        .glitch-wrap::after  { opacity:.5; animation: glitch2 .4s steps(1) infinite; color:#ff3022; }
 
         /* 3D section reveal */
         .reveal-3d {
