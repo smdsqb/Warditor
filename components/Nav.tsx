@@ -202,7 +202,7 @@ export default function Nav() {
         </ul>
 
         {/* Desktop CTA */}
-        <a href="#download" className="cta-btn-pill hidden md:flex items-center gap-1.5 flex-shrink-0"
+        <a href="https://warditor.vercel.app/#download" className="cta-btn-pill hidden md:flex items-center gap-1.5 flex-shrink-0"
           style={{ background:'#e63829', color:'#fff', fontFamily:'var(--font-mono)', fontSize:'11px', letterSpacing:'2px', textTransform:'uppercase', padding:ctaPad, borderRadius:'100px', fontWeight:700, whiteSpace:'nowrap' }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#c8301f' }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#e63829' }}
