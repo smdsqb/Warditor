@@ -12,6 +12,7 @@
     "@vercel/analytics": "^2.0.1",
     "next": "14.2.3",
     "react": "^18",
+    "react-cookie-consent": "^9.0.0",
     "react-dom": "^18"
   },
   "devDependencies": {
