@@ -61,6 +61,14 @@ export default function PreRegister() {
     }
   }, [])
 
+  // Auto-refresh every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refreshCount()
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [refreshCount])
+
   useEffect(() => {
     refreshCount()
   }, [refreshCount])
