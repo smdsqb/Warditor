@@ -470,7 +470,7 @@ export default function PreRegister() {
                   </h2>
                   <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.6', marginBottom: '24px', fontFamily: 'var(--font-dm)' }}>
                     We&apos;ll hit you up when V1 drops in June 2026.{' '}
-                    Start thinking about yesterday. It&apos;s already too late to change it.
+                    Start thinking about tomorrow. It&apos;s already too late to change yesterday.
                   </p>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="count-display" style={{ fontSize: '56px', marginBottom: '4px' }}>{displayCount}</div>
