@@ -37,6 +37,7 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const hideNavbar = pathname === '/preregister'
   return (
     <html lang="en">
       <body className="grain">
