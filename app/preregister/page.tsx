@@ -73,6 +73,7 @@ export default function PreRegister() {
     refreshCount()
   }, [refreshCount])
 
+  // HANDLE SUBMIT WITH FORCED PAGE RELOAD
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return
@@ -87,9 +88,15 @@ export default function PreRegister() {
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Something went wrong')
+      
       setStatus('success')
-      await refreshCount()
       setEmail('')
+      
+      // Force page reload after 1 second to show updated count
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
+      
     } catch (err: unknown) {
       setStatus('error')
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Try again.')
