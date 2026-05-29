@@ -125,7 +125,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 list-none p-0 m-0">
               <li><Link href="/features" className="footer-link">Features</Link></li>
               <li><Link href="/#pricing" className="footer-link">Pricing</Link></li>
-              <li><a href="#download" className="footer-link">Download</a></li>
+              <li><a href="/preregister" className="footer-link">Pre-register</a></li>
             </ul>
           </div>
 
