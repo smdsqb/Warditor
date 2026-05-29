@@ -344,15 +344,6 @@ export default function PreRegister() {
           </div>
         </RevealWrapper>
 
-        {/* Status badge */}
-        <RevealWrapper>
-          <div className="flex justify-center mb-8">
-            <div className="status-badge" style={{ background: 'rgba(230,56,41,0.12)', border: '1px solid rgba(230,56,41,0.3)', color: '#e63829' }}>
-              <div className="changelog-dot" style={{ width: '5px', height: '5px' }} />
-              V1 in testing · June 2026 launch
-            </div>
-          </div>
-        </RevealWrapper>
 
         {/* Headline */}
         <RevealWrapper>
