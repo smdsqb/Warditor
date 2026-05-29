@@ -15,7 +15,7 @@ import RevealWrapper from '../../components/RevealWrapper'
 // Document shape: { email: string, createdAt: Timestamp, source: string }
 // ─────────────────────────────────────────────────────────────────────────────
 
-const PARTICLE_COUNT = 28
+const PARTICLE_COUNT = 50
 
 function useCountUp(target: number, duration = 1400) {
   const [count, setCount] = useState(0)
