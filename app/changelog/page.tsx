@@ -15,6 +15,7 @@ const entries = [
     items: [
       'More services such as Spotify, Zoom and Github are added',
       'Warditor v1 apk is developed and is currently being tested',
+      'Warditor is now GDPR and CCPA compliant (no certification however)',
     ],
   },
   {
@@ -57,7 +58,7 @@ const entries = [
 ]
 
 const upcoming = [
-  { label: 'Android app beta', status: 'In progress' },
+  { label: 'Android app beta', status: 'Testing' },
   { label: 'Supabase + Firebase + Gemini AI integration', status: 'In progress' },
   { label: 'UsageStatsManager API', status: 'Successful' },
   { label: 'YouTube, Reddit, Discord, Spotify, Zoom and Github API connections', status: 'Successful' },
