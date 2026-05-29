@@ -15,11 +15,6 @@ import RevealWrapper from '../../components/RevealWrapper'
 // Document shape: { email: string, createdAt: Timestamp, source: string }
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const metadata = {
-  title: 'Join the Waitlist — Warditor',
-  description: 'V1 is being tested. June 2026 launch. Get early access to the only productivity app that makes you feel your wasted time.',
-}
-
 const PARTICLE_COUNT = 28
 
 function useCountUp(target: number, duration = 1400) {
