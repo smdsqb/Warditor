@@ -367,14 +367,6 @@ export default function PreRegister() {
           </p>
         </RevealWrapper>
 
-        {/* Feature chips */}
-        <RevealWrapper>
-          <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-xl">
-            {['🧠 AI Shame Reports', '📱 Android', '🔗 YouTube + Reddit + Discord', '📉 Consequence Correlation'].map(f => (
-              <div key={f} className="feature-chip">{f}</div>
-            ))}
-          </div>
-        </RevealWrapper>
 
         {/* ── MAIN FORM CARD ── */}
         <RevealWrapper>
