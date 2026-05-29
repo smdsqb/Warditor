@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import CookieBanner from '../components/CookieBanner'
 import { Analytics } from '@vercel/analytics/next'
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Warditor',
@@ -36,14 +37,17 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const hideNavbar = pathname === '/preregister'
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers()
+  const pathname = headersList.get('x-pathname') || ''
+  const hideNavFooter = pathname === '/preregister'
+
   return (
     <html lang="en">
       <body className="grain">
-        <Nav />
+        {!hideNavFooter && <Nav />}
         <main>{children}</main>
-        <Footer />
+        {!hideNavFooter && <Footer />}
         <Analytics />
         <CookieBanner />
       </body>
