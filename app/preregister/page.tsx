@@ -372,7 +372,7 @@ export default function PreRegister() {
           <p className="text-center text-base md:text-lg font-light leading-relaxed mb-4 max-w-lg" style={{ color: 'rgba(255,255,255,0.45)' }}>
             No blockers. No streaks. No gamification. Just{' '}
             <span style={{ color: 'rgba(255,255,255,0.8)' }}>a story about what you actually did</span>{' '}
-            — and the exam you said you'd study for.
+            — and the exam you said you&apos;d study for.
           </p>
         </RevealWrapper>
 
