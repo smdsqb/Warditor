@@ -32,6 +32,28 @@ export default function PreRegister() {
   const inputRef = useRef<HTMLInputElement>(null)
   const displayCount = useCountUp(waitlistCount, 1200)
 
+  // Disable browser page caching
+  useEffect(() => {
+    // Add meta tags to prevent caching
+    const metaNoCache = document.createElement('meta')
+    metaNoCache.httpEquiv = 'Cache-Control'
+    metaNoCache.content = 'no-cache, no-store, must-revalidate'
+    document.head.appendChild(metaNoCache)
+    const metaPragma = document.createElement('meta')
+    metaPragma.httpEquiv = 'Pragma'
+    metaPragma.content = 'no-cache'
+    document.head.appendChild(metaPragma)
+    const metaExpires = document.createElement('meta')
+    metaExpires.httpEquiv = 'Expires'
+    metaExpires.content = '0'
+    document.head.appendChild(metaExpires)
+    return () => {
+      document.head.removeChild(metaNoCache)
+      document.head.removeChild(metaPragma)
+      document.head.removeChild(metaExpires)
+    }
+  }, [])
+
   useEffect(() => {
     setParticles(
       Array.from({ length: PARTICLE_COUNT }, () => ({
@@ -45,7 +67,6 @@ export default function PreRegister() {
     )
   }, [])
 
-  // Cache-busting refresh: add timestamp to URL
   const refreshCount = useCallback(async () => {
     try {
       const res = await fetch(`/api/waitlist/count?t=${Date.now()}`, {
@@ -60,7 +81,6 @@ export default function PreRegister() {
     }
   }, [])
 
-  // Initial load
   useEffect(() => {
     refreshCount()
   }, [refreshCount])
@@ -83,7 +103,7 @@ export default function PreRegister() {
       setStatus('success')
       setEmail('')
       
-      // Force page reload after 1 second to bypass any client-side state issues
+      // Force page reload after 1 second
       setTimeout(() => {
         window.location.reload()
       }, 1000)
@@ -103,7 +123,7 @@ export default function PreRegister() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#0a0a0a] flex flex-col">
       <style>{`
-        /* all your existing styles - keep exactly as you had */
+        /* all your existing styles - unchanged */
         @keyframes gridPulse {
           0%,100% { opacity: 0.04; }
           50%      { opacity: 0.07; }
