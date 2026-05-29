@@ -161,13 +161,13 @@ export default function PreRegister() {
         .glitch-wrap::before {
           left: 2px;
           opacity: 0.7;
-          animation: glitch1 0.8s steps(1) infinite;
+          animation: glitch1 0.2s steps(1) infinite;
           color: #ff6f61;
         }
         .glitch-wrap::after {
           left: -2px;
           opacity: 0.5;
-          animation: glitch2 0.8s steps(1) infinite;
+          animation: glitch2 0.2s steps(1) infinite;
           color: #ff3022;
         }
         @keyframes glitch1 {
