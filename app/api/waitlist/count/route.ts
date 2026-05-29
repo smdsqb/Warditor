@@ -1,11 +1,18 @@
 import { NextResponse } from 'next/server'
 import { db } from '@/lib/firebase-admin'
 
+// This line tells Next.js to never cache this route.
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
+    // Fetch all documents and return the array length.
+    // getCountFromServer() can also be used here, but this is very reliable.
     const snapshot = await db.collection('waitlist').get()
     const count = snapshot.size
-    
+    console.log(`[COUNT] Total documents in waitlist: ${count}`)
+
+    // These headers instruct Vercel's CDN not to cache the response.
     return new NextResponse(
       JSON.stringify({ count }),
       {
