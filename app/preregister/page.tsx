@@ -45,13 +45,12 @@ export default function PreRegister() {
     )
   }, [])
 
+  // Cache-busting refresh: add timestamp to URL
   const refreshCount = useCallback(async () => {
     try {
-      const res = await fetch('/api/waitlist/count', {
+      const res = await fetch(`/api/waitlist/count?t=${Date.now()}`, {
         cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache'
-        }
+        headers: { 'Cache-Control': 'no-cache' }
       })
       const data = await res.json()
       console.log('[REFRESH] Count fetched:', data.count)
@@ -61,19 +60,11 @@ export default function PreRegister() {
     }
   }, [])
 
-  // Auto-refresh every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      refreshCount()
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [refreshCount])
-
+  // Initial load
   useEffect(() => {
     refreshCount()
   }, [refreshCount])
 
-  // HANDLE SUBMIT WITH FORCED PAGE RELOAD
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return
@@ -92,7 +83,7 @@ export default function PreRegister() {
       setStatus('success')
       setEmail('')
       
-      // Force page reload after 1 second to show updated count
+      // Force page reload after 1 second to bypass any client-side state issues
       setTimeout(() => {
         window.location.reload()
       }, 1000)
@@ -111,8 +102,8 @@ export default function PreRegister() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#0a0a0a] flex flex-col">
-
       <style>{`
+        /* all your existing styles - keep exactly as you had */
         @keyframes gridPulse {
           0%,100% { opacity: 0.04; }
           50%      { opacity: 0.07; }
@@ -292,29 +283,13 @@ export default function PreRegister() {
 
       <div className="grid-bg" />
       <div className="scan-line" />
-
       <div className="glow-orb" style={{ width: '600px', height: '600px', top: '-200px', left: '-200px', background: 'rgba(230,56,41,0.08)' }} />
       <div className="glow-orb" style={{ width: '400px', height: '400px', bottom: '-100px', right: '-100px', background: 'rgba(230,56,41,0.06)' }} />
       <div className="glow-orb" style={{ width: '300px', height: '300px', top: '40%', left: '60%', background: 'rgba(230,56,41,0.04)' }} />
-
       {particles.map((p, i) => (
-        <div
-          key={i}
-          className="particle"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            '--op': p.opacity,
-            '--dur': `${p.duration}s`,
-            '--delay': `${p.delay}s`,
-          } as React.CSSProperties}
-        />
+        <div key={i} className="particle" style={{ left: `${p.x}%`, top: `${p.y}%`, width: `${p.size}px`, height: `${p.size}px`, '--op': p.opacity, '--dur': `${p.duration}s`, '--delay': `${p.delay}s` } as React.CSSProperties} />
       ))}
-
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-24">
-
         <RevealWrapper>
           <div className="flex justify-center mb-10">
             <Link href="/changelog" className="changelog-pill">
@@ -324,7 +299,6 @@ export default function PreRegister() {
             </Link>
           </div>
         </RevealWrapper>
-
         <RevealWrapper>
           <div className="text-center mb-4 max-w-4xl">
             <h1 style={{ fontFamily: 'var(--font-bebas)', letterSpacing: '4px', lineHeight: '0.88' }} className="text-white">
@@ -333,7 +307,6 @@ export default function PreRegister() {
             </h1>
           </div>
         </RevealWrapper>
-
         <RevealWrapper>
           <p className="text-center text-base md:text-lg font-light leading-relaxed mb-4 max-w-lg" style={{ color: 'rgba(255,255,255,0.45)' }}>
             No blockers. No streaks. No gamification. Just{' '}
@@ -341,11 +314,9 @@ export default function PreRegister() {
             — and the exam you said you&apos;d study for.
           </p>
         </RevealWrapper>
-
         <RevealWrapper>
           <div className="w-full max-w-md">
             <div className="form-card p-8 md:p-10">
-
               {status !== 'success' ? (
                 <>
                   <div className="text-center mb-8">
@@ -357,7 +328,6 @@ export default function PreRegister() {
                       people registered
                     </p>
                   </div>
-
                   <form onSubmit={handleSubmit}>
                     <div style={{ marginBottom: '12px' }}>
                       <input
@@ -372,18 +342,15 @@ export default function PreRegister() {
                         autoComplete="email"
                       />
                     </div>
-
                     {status === 'error' && (
                       <p style={{ color: '#e63829', fontSize: '12px', fontFamily: 'var(--font-mono)', marginBottom: '10px', letterSpacing: '0.5px' }}>
                         ⚠ {errorMsg}
                       </p>
                     )}
-
                     <button type="submit" className="submit-btn" disabled={status === 'loading'}>
                       {buttonLabel}
                     </button>
                   </form>
-
                   <p style={{ textAlign: 'center', marginTop: '14px', fontSize: '11px', fontFamily: 'var(--font-mono)', letterSpacing: '1px', color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase' }}>
                     No spam. Just a heads-up when V1 drops.
                   </p>
@@ -409,7 +376,6 @@ export default function PreRegister() {
             </div>
           </div>
         </RevealWrapper>
-
         <RevealWrapper>
           <div className="mt-10 text-center">
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '12px 24px', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)' }}>
@@ -421,7 +387,6 @@ export default function PreRegister() {
             </div>
           </div>
         </RevealWrapper>
-
         <RevealWrapper>
           <div className="mt-8">
             <Link href="/" style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '2px', color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase', textDecoration: 'none', transition: 'color .2s' }}
@@ -432,7 +397,6 @@ export default function PreRegister() {
             </Link>
           </div>
         </RevealWrapper>
-
       </div>
     </div>
   )
