@@ -8,6 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json()
+    console.log(`[JOIN] Attempting to add email: ${email}`)
 
     if (!email || !email.includes('@')) {
       return NextResponse.json({ error: 'Invalid email' }, { status: 400 })
@@ -25,11 +26,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "You're already on the list!" }, { status: 409 })
     }
 
-    await db.collection('waitlist').add({
+    const docRef = await db.collection('waitlist').add({
       email: normalised,
       createdAt: FieldValue.serverTimestamp(),
       source: 'preregister-page',
     })
+    console.log(`[JOIN] Added document with ID: ${docRef.id}`)
 
     await resend.emails.send({
       from: 'Warditor <hello@warditor.com>',
@@ -55,6 +57,7 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+    console.log(`[JOIN] Welcome email sent to: ${normalised}`)
 
     return NextResponse.json({ success: true })
   } catch (err) {
