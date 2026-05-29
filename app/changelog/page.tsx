@@ -13,8 +13,8 @@ const entries = [
     tagColor: 'bg-accent text-white',
     title: 'More services added, app linking finished',
     items: [
-      'More services are added such as Spotify, Zoom and Github',
-      'Warditor app is developed and is currently being tested',
+      'More services such as Spotify, Zoom and Github are added',
+      'Warditor v1 apk is developed and is currently being tested',
     ],
   },
   {
