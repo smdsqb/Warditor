@@ -107,7 +107,7 @@ export default function Terms() {
       <h1 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(48px, 6vw, 80px)', letterSpacing: '3px', lineHeight: 1 }} className="text-black mb-4">
         TERMS &amp;<br />CONDITIONS
       </h1>
-      <p className="text-sm font-light text-muted mb-2">Last updated: 28th May 2026</p>
+      <p className="text-sm font-light text-muted mb-2">Last updated: 17th July 2026</p>
       <p className="text-base font-light text-muted leading-relaxed mb-16 max-w-xl">
         Plain English. No legal jargon. These are the rules for using Warditor — please read them before you do.
       </p>
