@@ -54,8 +54,8 @@ const sections = [
     title: 'Third party services',
     content: [
       'Supabase — authentication and data storage',
-      'Gemini — AI processing of usage data to generate reports (data is not retained by Gemini)',
-      'YouTube, Reddit, Discord, Github, Spotify, Zoom and Google APIs — only accessed if you explicitly connect your accounts',
+      'Gemini Flash 2.5 — AI processing of usage data to generate reports (data is not retained by Gemini)',
+      'Reddit, Discord, Github, GitLab, Spotify, Twitch & Zoom — only accessed if you explicitly connect your accounts',
       'Razorpay — payment processing for Premium subscriptions (we do not store card details)',
     ],
   },
