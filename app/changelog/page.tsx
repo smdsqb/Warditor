@@ -17,6 +17,7 @@ const entries = [
       'Warditor application is updated with mindful lock amid major updates',
       'Gemini Flash 2.5 is trialled to generate shame reports',
     ],
+  }
   {
     version: 'v0.3',
     date: 'May 2026',
