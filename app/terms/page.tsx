@@ -25,7 +25,7 @@ const sections = [
     content: [
       'You must sign in with a Google account to use Warditor.',
       'You are responsible for maintaining the security of your account.',
-      'You must be at least 13 years old to use Warditor. If you are under 18, you confirm you have parental consent.',
+      'You must be at least 10 years old to use Warditor. If you are under 18, you confirm you have parental consent.',
       'One account per person. You may not share your account with others.',
     ],
   },
@@ -51,7 +51,7 @@ const sections = [
   {
     title: 'Third-party platform connections',
     content: [
-      'Warditor can optionally connect to YouTube, Discord, Spotify, GitHub, Zoom and Reddit via OAuth.',
+      'Warditor can optionally connect to Reddit, Discord, Github, GitLab, Spotify, Twitch & Zoom via OAuth.',
       'These connections are entirely opt-in and can be revoked at any time from app settings.',
       'We are not responsible for any changes to third-party APIs that may affect functionality.',
       'Your use of connected platforms remains subject to those platforms\' own terms of service.',
