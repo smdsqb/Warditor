@@ -7,15 +7,26 @@ export const metadata = {
 
 const entries = [
   {
-    version: 'v0.3',
+    version: 'v0.4',
     date: 'May 2026',
     tag: 'Latest',
     tagColor: 'bg-accent text-white',
+    title: 'App Updates',
+    items: [
+      'More services such as GitLab, Twitch, Reddit are added',
+      'Warditor application is updated with mindful lock amid major updates',
+      'Gemini Flash 2.5 is trialled to generate shame reports',
+    ],
+  {
+    version: 'v0.3',
+    date: 'May 2026',
+    tag: 'Drafting',
+    tagColor: 'bg-black text-white',
     title: 'More services added, app linking finished',
     items: [
-      'More services such as Spotify, Zoom and Github are added',
-      'Warditor v1 apk is developed and is currently being tested',
-      'Warditor is now GDPR and CCPA compliant (no certification however)',
+      'More services such as Zoom and Github are added',
+      'Warditor Draft 1 is developed and is currently being tested',
+      'Warditor is now GDPR and CCPA compliant (not certified)',
     ],
   },
   {
@@ -25,9 +36,9 @@ const entries = [
     tagColor: 'bg-black text-white',
     title: 'App development and linking in progress',
     items: [
-      'App development begins, and is linked to Supabase for authentication and Firebase for storage',
+      'App development begins, and is linked to Supabase for authentication and storage',
       'Testing for connected services start to ensure smooth delivery to users',
-      'Currently available OAuth services are YouTube, Google, Reddit, Discord. All of which users can optionally enable to allow a more detailed report',
+      'Currently available OAuth services are YouTube, Google and Discord. All of which users can optionally enable to allow a more detailed report',
     ],
   },
   {
@@ -39,8 +50,6 @@ const entries = [
     items: [
       'Landing page, About, Features, Privacy, Changelog pages shipped',
       'Mobile responsive across all pages',
-      'Google Search Console verified, sitemap submitted',
-      'Open Graph meta tags for social sharing',
     ],
   },
   {
@@ -58,13 +67,13 @@ const entries = [
 ]
 
 const upcoming = [
-  { label: 'Android app beta', status: 'Testing' },
-  { label: 'Supabase + Firebase + Gemini AI integration', status: 'In progress' },
+  { label: 'Android app beta', status: 'Development' },
+  { label: 'Supabase + Firebase + Gemini AI integration', status: 'Successful' },
   { label: 'UsageStatsManager API', status: 'Successful' },
-  { label: 'YouTube, Reddit, Discord, Spotify, Zoom and Github API connections', status: 'Successful' },
+  { label: 'Reddit, Discord, Github, GitLab, Spotify, Twitch, Zoom & Google connections', status: 'Successful' },
   { label: 'Google Activity API', status: 'Successful' },
   { label: 'Razorpay payment integration', status: 'Planned' },
-  { label: 'Consequence correlation engine', status: 'Planned' },
+  { label: 'Consequence correlation engine', status: 'Work in progress' },
   { label: 'Accountability partner feature', status: 'Planned' },
   { label: 'iOS app', status: 'Post-launch' },
 ]

@@ -16,7 +16,7 @@ const steps = [
 
 const features = [
   { icon: '🧠', title: 'AI Shame Reports', desc: 'Not a dashboard. Not a bar chart. A narrative that tells you exactly what you chose to do instead — in plain, uncomfortable English.' },
-  { icon: '🔗', title: 'Deep Platform Data', desc: 'Connect YouTube, Reddit, Discord, Github, Spotify, Zoom and Google Activity. Know which videos, which subreddits, which rabbit holes swallowed your evening.' },
+  { icon: '🔗', title: 'Deep Platform Data', desc: 'Connect Reddit, Discord, Github, GitLab, Spotify, Twitch & Zoom. Know which videos, which subreddits, which rabbit holes swallowed your evening.' },
   { icon: '📉', title: 'Consequence Correlation', desc: "Warditor links your distractions to your real outcomes over time. 4 hours of Shorts → 34% on your exam. The data doesn't forgive. Neither will you." },
   { icon: '👥', title: 'Accountability Partner', desc: "Share your audit with a trusted friend. Nothing changes behaviour faster than someone else seeing your screen time. Premium feature, but highly effective." },
 ]
@@ -33,7 +33,7 @@ const testimonials = [
 const faqs = [
   { q: "Does Warditor block apps?", a: "No. Deliberately. Blockers get turned off the moment willpower runs out. Warditor doesn't restrict you at all — it just makes sure you read exactly what you did the next morning. The choice is always yours. The consequences are always visible." },
   { q: "Is my data safe?", a: "Yes. Raw usage data is processed locally on your device where possible. Only aggregated insights sync to our secure servers. We never sell your data to anyone, ever. You can delete everything permanently at any time from app settings." },
-  { q: "Which platforms does it support?", a: "Core tracking works on all Android apps via the UsageStatsManager API — no setup needed beyond granting access once. For deeper data, you can optionally connect YouTube, Reddit, Discord, Github, Zoom and Spotify account. Each connection is fully opt-in." },
+  { q: "Which platforms does it support?", a: "Core tracking works on all Android apps via the UsageStatsManager API — no setup needed beyond granting access once. For deeper data, you can optionally connect Reddit, Discord, Github, GitLab, Spotify, Twitch & Zoom account. Each connection is fully opt-in." },
   { q: "Does it work on iPhone?", a: "Not yet. iOS severely restricts the kind of background monitoring Warditor needs. We're Android first. iPhone support depends on what Apple allows in future updates — we're watching closely." },
   { q: "How does the AI generate the shame report?", a: "Your usage data gets sent to our secure storage. AI then reads it and writes a human-readable narrative about your day. It's not a template. It's a story, written fresh each morning, specific to what you actually did." },
   { q: "Is there a free version?", a: "Yes. The free tier gives you 7 days of audit history, basic daily shame reports and full app usage tracking — no credit card needed. Premium unlocks full history, deep platform data, consequence correlation and the accountability partner feature for $4.99/month." },
