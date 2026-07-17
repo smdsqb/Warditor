@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 /* ─── DATA ─────────────────────────────────────────────────────────────────── */
 
 const steps = [
-  { num: '01', title: 'Download & Connect', desc: 'Install Warditor on Android. Grant usage access in one tap. Optionally connect YouTube, Reddit, and Instagram for deeper, more accurate data.' },
+  { num: '01', title: 'Download & Connect', desc: 'Install Warditor on Android. Grant usage access in one tap. Optionally connect Reddit, Discord, Github, GitLab, Spotify, Twitch & Zoom for deeper, more accurate data.' },
   { num: '02', title: 'Live your life', desc: 'Warditor runs silently in the background. No popups. No blockers. No judgment — yet. Just watching. Taking notes. Building your case.' },
   { num: '03', title: 'Face the audit', desc: "Every morning, your AI warden delivers a personalised shame report. Not numbers. A story. About you. About yesterday. About the exam you said you'd study for, but didn't." },
 ]
