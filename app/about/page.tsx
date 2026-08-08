@@ -21,7 +21,7 @@ export default function About() {
         <RevealWrapper>
           <div className="flex flex-col gap-5 text-base font-light text-muted leading-relaxed">
             <p>Warditor started with a simple, uncomfortable observation — every productivity app tells you what you <em>should</em> do. None of them make you truly reckon with what you actually did.</p>
-            <p>We were students. We had exams. We had plans. We had timers and blockers and Pomodoro apps. And we still spent three hours on YouTube the night before a paper.</p>
+            <p>We were students. We had exams. We had plans. We had timers and blockers and Pomodoro apps. And we still spent four on YouTube the night before a paper.</p>
             <p>The blockers didn&apos;t work because they were easy to turn off. The streaks didn&apos;t work because missing one felt the same as missing ten. The dashboards didn&apos;t work because a bar chart doesn&apos;t make you feel anything.</p>
           </div>
         </RevealWrapper>
