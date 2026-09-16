@@ -7,11 +7,25 @@ export const metadata = {
 
 const entries = [
   {
-    version: 'v0.4',
-    date: 'May 2026',
+    version: 'v0.5',
+    date: 'September 2026',
     tag: 'Latest',
     tagColor: 'bg-accent text-white',
     title: 'App Updates',
+    items: [
+      'Black theme introduced as a toggle feature',
+      'Off Duty Warden (AI chatbot) is added to handle queries and reminders',
+      'App looks, format and structure are changed',
+      'AI is now able to send reminders and notifications to remind users to read their reports',
+      'App is being tested by a group of pentesters',
+    ],
+  },
+  {
+    version: 'v0.4',
+    date: 'May 2026',
+    tag: 'Baby Steps...',
+    tagColor: 'bg-black text-white',
+    title: 'Updates',
     items: [
       'More services such as GitLab, Twitch, Reddit are added',
       'Warditor application is updated with mindful lock amid major updates',
@@ -68,13 +82,9 @@ const entries = [
 ]
 
 const upcoming = [
-  { label: 'Android app beta', status: 'Development' },
-  { label: 'Supabase + Firebase + Gemini AI integration', status: 'Successful' },
-  { label: 'UsageStatsManager API', status: 'Successful' },
   { label: 'Reddit, Discord, Github, GitLab, Spotify, Twitch, Zoom & Google connections', status: 'Successful' },
-  { label: 'Google Activity API', status: 'Successful' },
   { label: 'Razorpay payment integration', status: 'Planned' },
-  { label: 'Consequence correlation engine', status: 'Work in progress' },
+  { label: 'Consequence correlation engine', status: 'Successful' },
   { label: 'Accountability partner feature', status: 'Planned' },
   { label: 'iOS app', status: 'Post-launch' },
 ]
