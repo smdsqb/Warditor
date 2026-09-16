@@ -22,7 +22,7 @@ const entries = [
   },
   {
     version: 'v0.4',
-    date: 'May 2026',
+    date: 'August 2026',
     tag: 'Baby Steps...',
     tagColor: 'bg-black text-white',
     title: 'Updates',
@@ -34,7 +34,7 @@ const entries = [
   },
   {
     version: 'v0.3',
-    date: 'May 2026',
+    date: 'August 2026',
     tag: 'Drafting',
     tagColor: 'bg-black text-white',
     title: 'More services added, app linking finished',
@@ -46,7 +46,7 @@ const entries = [
   },
   {
     version: 'v0.2',
-    date: 'May 2026',
+    date: 'July 2026',
     tag: 'Development',
     tagColor: 'bg-black text-white',
     title: 'App development and linking in progress',
@@ -58,7 +58,7 @@ const entries = [
   },
   {
     version: 'v0.1',
-    date: 'May 2026',
+    date: 'June 2026',
     tag: 'Webpage deployed',
     tagColor: 'bg-black text-white',
     title: 'Website live',
