@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
           <div style="color:#e63829;font-size:28px;font-weight:900;letter-spacing:4px;margin-bottom:24px;">WARDITOR</div>
           <h1 style="font-size:22px;font-weight:700;margin-bottom:16px;">You're in.</h1>
           <p style="color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:24px;">
-            V1 is being tested right now. We're targeting a <strong style="color:#fff;">June 2026</strong> launch, Android first.
+            V1 is being tested right now. We're targeting a <strong style="color:#fff;">January 2027</strong> launch, Android first.
             You'll be the first to know when it drops.
           </p>
           <p style="color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:32px;">
